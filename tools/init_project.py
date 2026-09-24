@@ -67,7 +67,7 @@ def initialize(root: Path, name: str) -> dict[str,Any]:
 
 def main() -> int:
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--root',type=Path,default=Path('D:/短剧制作'))
+    parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
     parser.add_argument('--project-name',required=True)
     args=parser.parse_args()
     try: result=initialize(args.root,args.project_name)

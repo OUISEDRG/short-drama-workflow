@@ -9,7 +9,7 @@
 | 1 | [screenplay-prebreakdown-analysis](screenplay-prebreakdown-analysis/SKILL.md) | 通读剧本与项目配置，建立事实、来源、人物知识、VO/OS、空间、素材候选和连续性输入。 |
 | 2 | [ai-short-drama-director](ai-short-drama-director/SKILL.md) | 完成戏剧任务、知识差、视觉证据、镜头功能、空间连续性和导演验收。 |
 | 3 | [cinematic-acting-execution-library](cinematic-acting-execution-library/SKILL.md) | 把已选定的导演意图转成可观察、可生成的表演语言。 |
-| 4 | [sd25-video-prompt-compiler](sd25-video-prompt-compiler/SKILL.md) | 完成动态拆段、时间预算、风险与控制深度、Reference Authority 和五模块视频 Prompt。 |
+| 4 | [sd25-video-prompt-compiler](sd25-video-prompt-compiler/SKILL.md) | 完成动态拆段、时间预算、风险与控制深度、Reference Authority 和五项内容职责；最终排版由独立规范负责。 |
 | 5 | [dreamina-sd25-prompt-adapter](dreamina-sd25-prompt-adapter/SKILL.md) | 把执行稿适配到剧梦真实完整素材名、引用芯片、页面限制和生成前检查。 |
 | 6 | [dreamina-short-drama-production](dreamina-short-drama-production/SKILL.md) | 编排任务重锚、平台操作、生成门禁、提交、Take 验收、日志和断点恢复。 |
 
@@ -21,7 +21,10 @@
 
 ## 快速开始
 
-1. 复制整个模板到新短剧项目；不要直接在母版中填写项目事实。
+当前工作流v3.5（2026-09-24）。先读上级《工作流规则索引.md》。既有六个Skill及reference文件名保持兼容；文件正文的v3.5裁决为当前规则。
+
+1. 通用工作流集中维护，新项目只保存参数副本、台账、AGENTS入口与版本锁，不再复制整套Skill；不要在母版中填写项目事实。
+   六个 Skill 及 references 只保留跨项目流程、字段含义和校验方法；剧名、人物、对白、素材全名、主语言和项目路径都从当前项目文件与真实素材库读取，不使用其他项目的示例值。
 2. 复制 [项目参数.template.json](dreamina-short-drama-production/assets/项目参数.template.json) 为项目自己的 `项目参数.json`，填写剧本来源、项目身份、资产映射、平台状态和授权范围。
 3. 从 `dreamina-short-drama-production` 开始完整制作；只做单项工作时可直接调用对应 Skill。
 4. 先完成事实预拆解，再做导演判断和 SD2.5 编译；剧梦适配只能使用平台真实存在且逐字一致的完整素材名称。

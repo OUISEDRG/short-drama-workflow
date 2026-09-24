@@ -87,7 +87,7 @@ def validate_manifest(m: dict[str, Any]) -> list[dict[str, str]]:
         text=item.get('text')
         if not isinstance(text,str) or not text.strip(): issue('TEXT_MISSING',at,'需要实际原文，不可留空。'); return
         if item.get('language')!=lang: issue('LANGUAGE_MISMATCH',at,'文字/声音必须使用本剧主语言。')
-        # 此检查只能发现明显异文字体系；不能识别所有英文、西语错词或伪词。
+        # 此检查只能发现明显异文字体系；不能识别目标语言的错词或伪词。
         if base_lang in {'es','en','pt','fr','de','it'} and re.search(r'[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]',text):
             issue('FOREIGN_SCRIPT',at,'主语言为拉丁字母语言时出现中日韩字符。')
     def bounded(item: dict[str,Any],at: str) -> None:
