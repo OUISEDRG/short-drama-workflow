@@ -1,0 +1,88 @@
+{
+  "schema": "JM0914-v3.4-skill-layout",
+  "creative_priority": [
+    "L0_current_task",
+    "L1_project_and_assets",
+    "L2_SD2.5_v3.4",
+    "L3_director_core_v3.4"
+  ],
+  "authorities": {
+    "screenplay_prebreakdown": "screenplay-prebreakdown-analysis/SKILL.md",
+    "director_brain": "ai-short-drama-director/SKILL.md",
+    "acting_library": "cinematic-acting-execution-library/SKILL.md",
+    "video_prompt_compiler": "sd25-video-prompt-compiler/SKILL.md",
+    "dreamina_adapter": "dreamina-sd25-prompt-adapter/SKILL.md",
+    "operations_orchestrator": "dreamina-short-drama-production/SKILL.md"
+  },
+  "script": {
+    "fact_source": null,
+    "dialogue_source": null,
+    "versions": [],
+    "main_language": null,
+    "srt_source": null,
+    "srt_policy": "若 L0/L1 指定 SRT，则锁定已确认的文字、顺序与时间；声音权限另行决定"
+  },
+  "range": {
+    "start_episode": null,
+    "end_episode": null,
+    "unspecified_end_policy": "保留连续制作规则",
+    "current_delivery_format": null
+  },
+  "audio": {
+    "vo_os_policy": "inherit_L0_L1",
+    "bgm_policy": null,
+    "subtitle_policy": null,
+    "voice_assets": []
+  },
+  "timing": {
+    "segment_policy": "dynamic_by_story_dialogue_sequence_reaction_and_risk",
+    "timeline_source": "L0/L1/SRT_or_L2_budget"
+  },
+  "assets": {
+    "source": "剧梦真实素材库",
+    "target_project": null,
+    "upload_authorized": false,
+    "authorized_local_files": [],
+    "binding_evidence": null,
+    "naming_separator": "_",
+    "character_identity_source": "项目显式正式名称字段",
+    "binding_key": "剧梦中真实存在、逐字一致的完整素材名称",
+    "character_instance_separator": "__",
+    "character_bindings": [],
+    "scene_bindings": [],
+    "top_view_bindings": [],
+    "prop_bindings": []
+  },
+  "platform": {
+    "model": "九梦2.5 Pro",
+    "resolution": "480p",
+    "duration_mode": "智能时长",
+    "verification_status": "未实测",
+    "verification_date": null,
+    "environment": null,
+    "evidence": null
+  },
+  "prompt": {
+    "architecture": "SD2.5_v3.4_five_modules",
+    "max_characters": null,
+    "character_limit_source": "以当前页面实时限制为准"
+  },
+  "sequence_canon": {
+    "last_accepted_take": null,
+    "character_instances": [],
+    "positions": [],
+    "gaze": [],
+    "held_objects": [],
+    "action_results": [],
+    "scene_state": [],
+    "light_stage": null,
+    "emotional_aftereffects": []
+  },
+  "authorization": {
+    "open_online_project": false,
+    "upload_assets": false,
+    "platform_generation": false,
+    "spend_credits": false,
+    "production_scope": null
+  }
+}

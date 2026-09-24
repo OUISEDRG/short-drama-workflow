@@ -1,0 +1,54 @@
+test_creates_config_without_authorizing_generation (test_initializer.InitializerTests.test_creates_config_without_authorizing_generation) ... ok
+test_missing_template_does_not_partially_initialize (test_initializer.InitializerTests.test_missing_template_does_not_partially_initialize) ... ok
+test_old_asset_file_is_untouched (test_initializer.InitializerTests.test_old_asset_file_is_untouched) ... ok
+test_path_traversal_is_rejected (test_initializer.InitializerTests.test_path_traversal_is_rejected) ... ok
+test_repeated_initialization_preserves_every_existing_file (test_initializer.InitializerTests.test_repeated_initialization_preserves_every_existing_file) ... ok
+test_audio_policies_are_not_conflated (test_payload.PayloadTests.test_audio_policies_are_not_conflated) ... ok
+test_chinese_asset_binding_is_not_treated_as_foreign_screen_text (test_payload.PayloadTests.test_chinese_asset_binding_is_not_treated_as_foreign_screen_text) ... ok
+test_defaults_have_no_fixed_duration (test_payload.PayloadTests.test_defaults_have_no_fixed_duration) ... ok
+test_layout_template_has_no_independent_voice_reference (test_payload.PayloadTests.test_layout_template_has_no_independent_voice_reference) ... ok
+test_legacy_screen_postproduction_instruction_is_detected (test_payload.PayloadTests.test_legacy_screen_postproduction_instruction_is_detected) ... ok
+test_legacy_voice_block_is_detected (test_payload.PayloadTests.test_legacy_voice_block_is_detected) ... ok
+test_no_generation_permission_is_inherited_from_template (test_payload.PayloadTests.test_no_generation_permission_is_inherited_from_template) ... ok
+test_screen_text_is_direct_not_postproduction (test_payload.PayloadTests.test_screen_text_is_direct_not_postproduction) ... ok
+test_ambiguous_anchor_stops (test_upgrader.UpgraderTests.test_ambiguous_anchor_stops) ... ok
+test_apply_backs_up_original_and_verifies_bytes (test_upgrader.UpgraderTests.test_apply_backs_up_original_and_verifies_bytes) ... ok
+test_failed_new_file_is_removed_only_if_created_by_this_run (test_upgrader.UpgraderTests.test_failed_new_file_is_removed_only_if_created_by_this_run) ... ok
+test_failed_second_write_rolls_back_first_file (test_upgrader.UpgraderTests.test_failed_second_write_rolls_back_first_file) ... ok
+test_missing_anchor_stops_instead_of_guessing (test_upgrader.UpgraderTests.test_missing_anchor_stops_instead_of_guessing) ... ok
+test_path_traversal_is_not_allowed (test_upgrader.UpgraderTests.test_path_traversal_is_not_allowed) ... ok
+test_plan_serialization_is_read_only (test_upgrader.UpgraderTests.test_plan_serialization_is_read_only) ... ok
+test_preflight_concurrent_modification_stops_without_write (test_upgrader.UpgraderTests.test_preflight_concurrent_modification_stops_without_write) ... ok
+test_section_preserves_surrounding_content (test_upgrader.UpgraderTests.test_section_preserves_surrounding_content) ... ok
+test_unique_anchor_replaces_exactly_once (test_upgrader.UpgraderTests.test_unique_anchor_replaces_exactly_once) ... ok
+test_invalid_speech_id_reports_error_not_exception (test_validator.AdditionalBoundaryTests.test_invalid_speech_id_reports_error_not_exception) ... ok
+test_segment_cannot_exceed_user_episode_budget (test_validator.AdditionalBoundaryTests.test_segment_cannot_exceed_user_episode_budget) ... ok
+test_user_episode_budget_can_supply_segment_range (test_validator.AdditionalBoundaryTests.test_user_episode_budget_can_supply_segment_range) ... ok
+test_attached_character_audio_is_protected (test_validator.ManifestTests.test_attached_character_audio_is_protected) ... ok
+test_beats_cannot_relabel_one_continuous_shot (test_validator.ManifestTests.test_beats_cannot_relabel_one_continuous_shot) ... ok
+test_chinese_directing_notes_are_not_rendered_text (test_validator.ManifestTests.test_chinese_directing_notes_are_not_rendered_text) ... ok
+test_chinese_project_can_have_chinese_text (test_validator.ManifestTests.test_chinese_project_can_have_chinese_text) ... ok
+test_chinese_screen_text_in_spanish_fails (test_validator.ManifestTests.test_chinese_screen_text_in_spanish_fails) ... ok
+test_dropped_narration_information_is_rejected (test_validator.ManifestTests.test_dropped_narration_information_is_rejected) ... ok
+test_duplicate_dialogue_event_is_rejected (test_validator.ManifestTests.test_duplicate_dialogue_event_is_rejected) ... ok
+test_duration_cannot_default_to_ninety (test_validator.ManifestTests.test_duration_cannot_default_to_ninety) ... ok
+test_exactly_five_seconds_is_accepted (test_validator.ManifestTests.test_exactly_five_seconds_is_accepted) ... ok
+test_independent_voice_section_is_rejected (test_validator.ManifestTests.test_independent_voice_section_is_rejected) ... ok
+test_long_dialogue_crosses_actual_cut_without_repetition (test_validator.ManifestTests.test_long_dialogue_crosses_actual_cut_without_repetition) ... ok
+test_missing_authoritative_time_fails_submission_gate (test_validator.ManifestTests.test_missing_authoritative_time_fails_submission_gate) ... ok
+test_missing_dialogue_is_rejected (test_validator.ManifestTests.test_missing_dialogue_is_rejected) ... ok
+test_more_than_five_seconds_fails (test_validator.ManifestTests.test_more_than_five_seconds_fails) ... ok
+test_nan_time_is_rejected (test_validator.ManifestTests.test_nan_time_is_rejected) ... ok
+test_real_offscreen_dialogue_is_preserved (test_validator.ManifestTests.test_real_offscreen_dialogue_is_preserved) ... ok
+test_rewritten_dialogue_is_rejected (test_validator.ManifestTests.test_rewritten_dialogue_is_rejected) ... ok
+test_screen_text_cannot_be_deferred_to_post (test_validator.ManifestTests.test_screen_text_cannot_be_deferred_to_post) ... ok
+test_srt_long_cue_does_not_force_long_shot (test_validator.ManifestTests.test_srt_long_cue_does_not_force_long_shot) ... ok
+test_text_without_surface_is_rejected (test_validator.ManifestTests.test_text_without_surface_is_rejected) ... ok
+test_time_gap_fails (test_validator.ManifestTests.test_time_gap_fails) ... ok
+test_voice_over_cannot_be_spoken (test_validator.ManifestTests.test_voice_over_cannot_be_spoken) ... ok
+test_wrong_declared_language_fails_even_if_latin (test_validator.ManifestTests.test_wrong_declared_language_fails_even_if_latin) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 0.023s
+
+OK

@@ -1,0 +1,61 @@
+{
+  "main_language": "es",
+  "time_source": {
+    "kind": "user",
+    "seconds": 8
+  },
+  "duration_seconds": 8,
+  "shots": [
+    {
+      "id": "S01",
+      "start": 0,
+      "end": 4,
+      "transition_in": "start"
+    },
+    {
+      "id": "S02",
+      "start": 4,
+      "end": 8,
+      "transition_in": "hard_cut"
+    }
+  ],
+  "source_dialogue": {
+    "D01": "No tengo nada que ver."
+  },
+  "dialogue_events": [
+    {
+      "id": "D01",
+      "kind": "dialogue",
+      "speaker": "Vivian",
+      "text": "No tengo nada que ver.",
+      "language": "es",
+      "start": 0,
+      "end": 7.5
+    }
+  ],
+  "source_narration": {
+    "N01": "La mirada se detuvo en el informe."
+  },
+  "narration_coverage": [
+    {
+      "source_id": "N01",
+      "shot_ids": [
+        "S02"
+      ],
+      "visual_evidence": "角色停止翻页，视线落在报告上。"
+    }
+  ],
+  "screen_text_mode": "direct_generation",
+  "visible_text": [
+    {
+      "id": "T01",
+      "text": "INFORME",
+      "language": "es",
+      "surface": "平板实体屏幕",
+      "start": 4,
+      "end": 8
+    }
+  ],
+  "has_independent_voice_reference": false,
+  "character_attached_audio_preserved": true
+}

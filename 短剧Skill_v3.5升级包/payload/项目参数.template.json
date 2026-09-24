@@ -1,0 +1,118 @@
+{
+  "schema": "JM-v3.5",
+  "workflow_version": "3.5",
+  "project": {
+    "name": null,
+    "root": null,
+    "common_root": null
+  },
+  "creative_priority": [
+    "L0_current_task",
+    "L1_project_and_assets",
+    "L2_video_compiler",
+    "L3_director"
+  ],
+  "authorities": {
+    "skills": {
+      "screenplay-prebreakdown-analysis": "screenplay-prebreakdown-analysis/SKILL.md",
+      "ai-short-drama-director": "ai-short-drama-director/SKILL.md",
+      "cinematic-acting-execution-library": "cinematic-acting-execution-library/SKILL.md",
+      "sd25-video-prompt-compiler": "sd25-video-prompt-compiler/SKILL.md",
+      "dreamina-sd25-prompt-adapter": "dreamina-sd25-prompt-adapter/SKILL.md",
+      "dreamina-short-drama-production": "dreamina-short-drama-production/SKILL.md"
+    },
+    "content": "sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md#7.3",
+    "platform_content": "dreamina-sd25-prompt-adapter/SKILL.md",
+    "layout": "视频提示词输出规范_资产全名版.md#24"
+  },
+  "script": {
+    "fact_source": null,
+    "dialogue_source": null,
+    "versions": [],
+    "main_language": null,
+    "srt_source": null,
+    "srt_policy": "锁定已确认文字、顺序和实际时间；字幕条目可跨多个镜头；旁白仅覆盖画面"
+  },
+  "range": {
+    "start_episode": null,
+    "end_episode": null,
+    "unspecified_end_policy": "single_episode_unless_explicit_range",
+    "current_delivery_format": "one_markdown_per_episode"
+  },
+  "audio": {
+    "narration_policy": "visual_only",
+    "offscreen_dialogue_policy": "preserve_original_speech",
+    "normal_dialogue_policy": "preserve_verbatim_speaker_order_and_audio",
+    "independent_voice_reference": false,
+    "preserve_character_attached_audio": true,
+    "bgm_policy": "none",
+    "subtitle_policy": "no_burned_in_subtitles_during_generation",
+    "voice_assets": []
+  },
+  "timing": {
+    "episode_default_seconds": null,
+    "segment_default_seconds": null,
+    "source_priority": [
+      "current_user_requirement",
+      "confirmed_srt"
+    ],
+    "max_shot_seconds": 5,
+    "minimum_shot_seconds_exclusive": 0,
+    "real_cut_required": true,
+    "long_dialogue_policy": "one_speech_event_across_real_cuts",
+    "unconfirmed_timing_policy": "estimated_draft_only",
+    "segment_policy": "dynamic_within_source_and_live_platform_limits"
+  },
+  "screen_text": {
+    "mode": "direct_generation",
+    "language_source": "script.main_language",
+    "allow_other_languages": false,
+    "allow_gibberish": false,
+    "postproduction_fallback": false,
+    "require_exact_text_and_surface": true,
+    "notes_and_asset_names_are_not_rendered": true,
+    "failure_policy": "record_failure_correct_within_authorization_and_recheck"
+  },
+  "assets": {
+    "source": "current_project_and_real_platform_library",
+    "target_project": null,
+    "upload_authorized": false,
+    "authorized_local_files": [],
+    "binding_evidence": null,
+    "naming_separator": "_",
+    "character_instance_separator": "__",
+    "binding_key": "real_full_asset_name",
+    "character_bindings": [],
+    "scene_bindings": [],
+    "top_view_bindings": [],
+    "prop_bindings": []
+  },
+  "platform": {
+    "model": null,
+    "resolution": null,
+    "duration_mode": null,
+    "verification_status": "not_checked",
+    "verification_date": null,
+    "evidence": null
+  },
+  "prompt": {
+    "content_contract": "compiler_7.3",
+    "layout_contract": "asset_full_name_24",
+    "max_characters": null,
+    "detail_target_chinese_characters": 2500,
+    "detail_target_is_hard_limit": false
+  },
+  "sequence_canon": {
+    "last_accepted_take": null,
+    "source": null,
+    "verification_status": "not_checked"
+  },
+  "authorization": {
+    "open_online_project": false,
+    "upload_assets": false,
+    "platform_generation": false,
+    "spend_credits": false,
+    "production_scope": null
+  },
+  "decisions": []
+}
