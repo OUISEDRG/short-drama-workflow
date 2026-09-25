@@ -49,7 +49,7 @@ def initialize(root: Path, name: str) -> dict[str,Any]:
     lock=project/'工作流版本锁.json'
     if not lock.exists():
         entries={}
-        root_names={'新聊天启动指令.md','项目启动说明.template.md','视频提示词输出规范_资产全名版.md','创建新短剧项目.ps1','AGENTS.project.template.md','AGENTS.md','工作流规则索引.md','制作台账.template.json'}
+        root_names={'项目启动说明.template.md','视频提示词输出规范_资产全名版.md','AGENTS.project.template.md','AGENTS.md','工作流规则索引.md','制作台账.template.json'}
         active={common/name for name in root_names if (common/name).is_file()}
         bundle=common/'Codex适配剧梦提示词库（模版）0914'
         active.update(p for p in bundle.rglob('*') if p.is_file() and p.suffix in {'.md','.json'} and not any(x.startswith(('_升级','_备份','.')) for x in p.relative_to(bundle).parts))

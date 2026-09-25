@@ -1,0 +1,20 @@
+{
+  "schema": "JM-segment-check-v1",
+  "segment_id": null,
+  "segment_number": null,
+  "main_language": null,
+  "duration_seconds": null,
+  "time_source": {"kind": null, "seconds": null},
+  "source_review": {"dialogue": "unknown", "narration": "unknown", "visible_text": "unknown"},
+  "has_independent_voice_reference": false,
+  "character_attached_audio_preserved": null,
+  "screen_text_mode": "direct_generation",
+  "shots": [],
+  "source_dialogue": {},
+  "source_dialogue_meta": {},
+  "dialogue_events": [],
+  "source_narration": {},
+  "narration_coverage": [],
+  "visible_text": [],
+  "asset_bindings": []
+}
