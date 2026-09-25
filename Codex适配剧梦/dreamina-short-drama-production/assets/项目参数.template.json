@@ -4,7 +4,8 @@
   "project": {
     "name": null,
     "root": null,
-    "common_root": null
+    "common_root": null,
+    "common_root_note": "历史位置提示；以工作流绑定.json为唯一定位来源"
   },
   "creative_priority": [
     "L0_current_task",
@@ -14,16 +15,16 @@
   ],
   "authorities": {
     "skills": {
-      "screenplay-prebreakdown-analysis": "screenplay-prebreakdown-analysis/SKILL.md",
-      "ai-short-drama-director": "ai-short-drama-director/SKILL.md",
-      "cinematic-acting-execution-library": "cinematic-acting-execution-library/SKILL.md",
-      "sd25-video-prompt-compiler": "sd25-video-prompt-compiler/SKILL.md",
-      "dreamina-sd25-prompt-adapter": "dreamina-sd25-prompt-adapter/SKILL.md",
-      "dreamina-short-drama-production": "dreamina-short-drama-production/SKILL.md"
+      "screenplay-prebreakdown-analysis": {"resource_id": "skill.prebreakdown"},
+      "ai-short-drama-director": {"resource_id": "skill.director"},
+      "cinematic-acting-execution-library": {"resource_id": "skill.acting"},
+      "sd25-video-prompt-compiler": {"resource_id": "skill.compiler"},
+      "dreamina-sd25-prompt-adapter": {"resource_id": "skill.adapter"},
+      "dreamina-short-drama-production": {"resource_id": "skill.production"}
     },
-    "content": "sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md#7.3",
-    "platform_content": "dreamina-sd25-prompt-adapter/SKILL.md",
-    "layout": "视频提示词输出规范_资产全名版.md#24"
+    "content": {"resource_id": "reference.compiler", "section": "7.3"},
+    "platform_content": {"resource_id": "skill.adapter"},
+    "layout": {"resource_id": "layout.final_prompt", "section": "24"}
   },
   "script": {
     "fact_source": null,
