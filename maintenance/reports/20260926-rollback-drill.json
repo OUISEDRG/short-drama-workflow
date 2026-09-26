@@ -1,0 +1,10 @@
+{
+  "schema": "JM-rollback-drill-v1",
+  "ok": true,
+  "temporary_copy_only": true,
+  "restored_original_files": 27,
+  "new_sources_archived": 10,
+  "old_doctor_exit_code": 0,
+  "later_edit_precondition_refusal": true,
+  "real_workflow_restored": false
+}

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from pathlib import Path
 from typing import Any
 
@@ -50,16 +51,26 @@ def verify_lock(layout: WorkflowLayout, lock_data: dict[str, Any]) -> dict[str, 
             or lock_data.get("hash_algorithm") != "sha256"):
         raise WorkflowError("LOCK_INVALID", "版本锁身份或哈希算法不符")
     old = lock_data.get("resources")
-    if not isinstance(old, dict):
+    if not isinstance(old, dict) or not old:
         raise WorkflowError("LOCK_INVALID", "版本锁资源表无效")
+    for key in ('rule_version', 'infrastructure_version'):
+        if not isinstance(lock_data.get(key), str) or not lock_data[key]:
+            raise WorkflowError('LOCK_INVALID', f'版本字段无效：{key}')
+    for rid, item in old.items():
+        if (not isinstance(rid, str) or not rid or not isinstance(item, dict)
+                or not isinstance(item.get('sha256'), str)
+                or re.fullmatch(r'[0-9a-fA-F]{64}', item['sha256']) is None
+                or not isinstance(item.get('path_hint'), str)):
+            raise WorkflowError('LOCK_INVALID', f'版本锁资源条目无效：{rid}')
     current = make_lock(layout)
     actual = current["resources"]
     changed = []
+    relocated = []
     diffs = {}
     for rid in sorted(set(old) & set(actual)):
         item = old[rid]
-        if not isinstance(item, dict) or not isinstance(item.get("sha256"), str) or len(item["sha256"]) != 64:
-            raise WorkflowError("LOCK_INVALID", f"版本锁哈希格式无效：{rid}")
+        if item['path_hint'] != actual[rid]['path_hint']:
+            relocated.append(rid)
         if item["sha256"].lower() != actual[rid]["sha256"]:
             changed.append(rid)
             diffs[rid] = {"old": item["sha256"], "new": actual[rid]["sha256"]}
@@ -77,4 +88,5 @@ def verify_lock(layout: WorkflowLayout, lock_data: dict[str, Any]) -> dict[str, 
             lock_data.get("workflow_path_hint") != str(layout.root) or
             lock_data.get("bundle_path_hint") != str(layout.bundle_root),
             "changed_resources": changed, "missing_resources": missing,
-            "added_resources": added, "resource_diffs": diffs, "version_diffs": versions}
+            "added_resources": added, "relocated_resources": relocated,
+            "resource_diffs": diffs, "version_diffs": versions}

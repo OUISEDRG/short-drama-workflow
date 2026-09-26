@@ -1,0 +1,116 @@
+{
+  "schema": "JM-workflow-lock-v2",
+  "workflow_id": "jumeng.short-drama.workflow",
+  "bundle_id": "jumeng.short-drama.core-skills",
+  "rule_version": "3.5",
+  "infrastructure_version": "1.0",
+  "hash_algorithm": "sha256",
+  "workflow_path_hint": "D:\\短剧制作\\_通用短剧工作流",
+  "bundle_path_hint": "D:\\短剧制作\\_通用短剧工作流\\Codex适配剧梦",
+  "resources": {
+    "doc.bundle_readme": {
+      "sha256": "a235dac2aa7b30216c6ed6ae846a8b70718e5d295a3a805b49dbd6097391d24e",
+      "path_hint": "README.md"
+    },
+    "doc.readme": {
+      "sha256": "287c81c84d72b0deb22cb59ddb8d8354a4eb423853d1cde0e93cce453873e95f",
+      "path_hint": "README.md"
+    },
+    "entry.maintenance": {
+      "sha256": "0f7d660ed490de057f7e8441a48582635bcd39f6e939e386ef10398c7435a31b",
+      "path_hint": "AGENTS.md"
+    },
+    "entry.rules": {
+      "sha256": "8ee0bf7c894e515df0fdd1a4e3f8784729aa39e365cbcee0d120a3bc37205af5",
+      "path_hint": "工作流规则索引.md"
+    },
+    "layout.final_prompt": {
+      "sha256": "0ed00d95d20bee47a9c1462fc41b43425693051c7038a60425477d6eb3e913ad",
+      "path_hint": "视频提示词输出规范_资产全名版.md"
+    },
+    "meta.bundle": {
+      "sha256": "172f68dfa5fe50bcfee2904e66b1f4e59e54a64c1b1a4d35bea5328a0694453c",
+      "path_hint": "bundle.manifest.json"
+    },
+    "meta.workflow": {
+      "sha256": "bc9b0d0e4e06dff30447aa23795c068dc86c19fda438b9277524df7a097f7af9",
+      "path_hint": "workflow.manifest.json"
+    },
+    "reference.compiler": {
+      "sha256": "927da557f0997238a28aa151727e935ddabcb30d0b7abb18478ba1ffaec9f7f7",
+      "path_hint": "sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md"
+    },
+    "reference.director": {
+      "sha256": "0c374059b70b742bb8a330b94722b6677c1f083e10131fc1e973e4e11dce9abb",
+      "path_hint": "ai-short-drama-director/references/AI短剧导演核心规范_v3.4.md"
+    },
+    "reference.production": {
+      "sha256": "9af1c03db9ecd8d9142f25fb21946f9be8aa6db627e6ada54f473522c52bb182",
+      "path_hint": "dreamina-short-drama-production/references/剧梦短剧制作总控_v3.4.md"
+    },
+    "skill.acting": {
+      "sha256": "50dde67d4e44e0a5b463bd83ffe136e0bcca2f8be777416c81351b3a2926c108",
+      "path_hint": "cinematic-acting-execution-library/SKILL.md"
+    },
+    "skill.adapter": {
+      "sha256": "3e3c69ba511876b3a2bb96a1167a8f0c00973f5121472cf2df7e6c480abe9aef",
+      "path_hint": "dreamina-sd25-prompt-adapter/SKILL.md"
+    },
+    "skill.compiler": {
+      "sha256": "31fbef4c63b2b1883deca219631708c7d78f2ed70d25cfbd10ba761226f6db94",
+      "path_hint": "sd25-video-prompt-compiler/SKILL.md"
+    },
+    "skill.director": {
+      "sha256": "e6aa75674151bdd93d8cd53df2b79c4497112173720305fe6c7947f18c9506ee",
+      "path_hint": "ai-short-drama-director/SKILL.md"
+    },
+    "skill.prebreakdown": {
+      "sha256": "668378d443f7fba59386263d49aa7ee4b270ddff83db1f8fd497a497ab553272",
+      "path_hint": "screenplay-prebreakdown-analysis/SKILL.md"
+    },
+    "skill.production": {
+      "sha256": "cb7ebdff0ccc6b146b2416b0a3640bf9d116ada3306ac011b02224e14dfe3655",
+      "path_hint": "dreamina-short-drama-production/SKILL.md"
+    },
+    "template.ledger": {
+      "sha256": "9a85cd999540ac579f76a2b73bd082532a5a2b2407b7a35db1c152679ea7b0f4",
+      "path_hint": "制作台账.template.json"
+    },
+    "template.project_agents": {
+      "sha256": "51fc822c513cf83533d5bb70eb376151838617bc1f4cca6e6b6574948e416a63",
+      "path_hint": "AGENTS.project.template.md"
+    },
+    "template.project_parameters": {
+      "sha256": "2ba197ae1d36bae90931e607dc48a85ff164bda330c5bea3c5e1f866aba70422",
+      "path_hint": "dreamina-short-drama-production/assets/项目参数.template.json"
+    },
+    "template.project_start": {
+      "sha256": "7c8f3ef85668f6ab9d4b05ab912b72304b1dd4afa556be153e26f5905905f1bd",
+      "path_hint": "项目启动说明.template.md"
+    },
+    "template.segment_check": {
+      "sha256": "2cf4cbb9c453099d4d2d8730a0bc21f9a2ee23672eef9a32861759aee8686560",
+      "path_hint": "dreamina-short-drama-production/assets/本段执行清单.template.json"
+    },
+    "tool.init_project": {
+      "sha256": "d30c567b068b1fe2ec6f25e806b1d00a25abaa7056fef270bc39cf239fc9cf29",
+      "path_hint": "tools/init_project.py"
+    },
+    "tool.lock": {
+      "sha256": "408f09352b9dd55c599721a2598743f34ffa4b435c6186d81c39ae4d271c46d6",
+      "path_hint": "tools/workflow_lock.py"
+    },
+    "tool.migrate": {
+      "sha256": "c29193c7091b4692dada0614c7c50d905fd3ad5f25765ecd698535f189daf87a",
+      "path_hint": "tools/migrate_workflow.py"
+    },
+    "tool.paths": {
+      "sha256": "fbc3e3b773a67f7e6408dd33f6d4568a450e1bb4614eccd2af272326fb257575",
+      "path_hint": "tools/workflow_paths.py"
+    },
+    "tool.workflow_check": {
+      "sha256": "bb64836a0449f4c11c91768cf976e8aa4bfd71f932be1293084129f5ce705717",
+      "path_hint": "tools/workflow_check.py"
+    }
+  }
+}

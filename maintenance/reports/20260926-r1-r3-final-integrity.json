@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "source_digest": "38ec7bb4965f5ccb61906828c1a5551c6be9d94f9ca8ca3d7b557964abd5b7b7",
+  "source_files": 48,
+  "tests_passed": 73,
+  "backup_integrity": "37/37",
+  "protected_resources": "11/11",
+  "parameters_business": "unchanged",
+  "existing_unmodified_files": 64,
+  "original_1_1_0_package": "unchanged",
+  "final_report": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\reports\\20260926-r1-r3-补修验收报告.md",
+  "git_status": " M .gitignore\n M AGENTS.md\n M AGENTS.project.template.md\n M README.md\n M tools/init_project.py\n M tools/migrate_workflow.py\n M tools/workflow_lock.py\n M tools/workflow_paths.py\n M workflow.manifest.json\n M 工作流规则索引.md\n?? maintenance/CHANGELOG.md\n?? maintenance/README.md\n?? maintenance/maintain.py\n?? maintenance/reports/20260926-acceptance.json\n?? maintenance/reports/20260926-changes.json\n?? maintenance/reports/20260926-check.json\n?? maintenance/reports/20260926-r1-r3-changes.json\n?? maintenance/reports/20260926-r1-r3-check.json\n?? maintenance/reports/20260926-r1-r3-final-check.json\n?? maintenance/reports/20260926-r1-r3-independent-probes.json\n?? maintenance/reports/20260926-r1-r3-release-cli.json\n?? maintenance/reports/20260926-r1-r3-reproduction.json\n?? maintenance/reports/20260926-r1-r3-补修验收报告.md\n?? maintenance/reports/20260926-readonly.json\n?? maintenance/reports/20260926-reproduction.json\n?? maintenance/reports/20260926-rollback-drill.json\n?? maintenance/reports/20260926-验收报告.md\n?? maintenance/tests/fixtures/README.md\n?? maintenance/tests/fixtures/infrastructure-1.0/AGENTS.project.template.md\n?? maintenance/tests/fixtures/infrastructure-1.0/bundle.manifest.json\n?? maintenance/tests/fixtures/infrastructure-1.0/workflow.manifest.json\n?? maintenance/tests/fixtures/infrastructure-1.0/工作流版本锁.json\n?? maintenance/tests/fixtures/infrastructure-1.0/工作流绑定.json\n?? maintenance/tests/fixtures/infrastructure-1.0/项目参数.template.json\n?? maintenance/tests/fixtures/legacy-3.5-noschema/AGENTS.project.template.md\n?? maintenance/tests/fixtures/legacy-3.5-noschema/工作流版本锁.json\n?? maintenance/tests/fixtures/legacy-3.5-noschema/项目参数.template.json\n?? maintenance/tests/fixtures/provenance.json\n?? maintenance/tests/support.py\n?? maintenance/tests/test_init.py\n?? maintenance/tests/test_lock.py\n?? maintenance/tests/test_maintenance.py\n?? maintenance/tests/test_migration.py\n?? maintenance/tests/test_paths.py\n?? maintenance/tests/test_production_contracts.py\n"
+}

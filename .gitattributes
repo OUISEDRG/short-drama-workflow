@@ -1,0 +1,2 @@
+# 历史 fixture 以原始字节和 SHA-256 为证据，禁止 Git 自动转换行尾。
+maintenance/tests/fixtures/** -text

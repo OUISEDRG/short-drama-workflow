@@ -2,3 +2,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 _backups/
+maintenance/backups/
+maintenance/releases/
+maintenance/reports/*.log
+maintenance/reports/*.incomplete

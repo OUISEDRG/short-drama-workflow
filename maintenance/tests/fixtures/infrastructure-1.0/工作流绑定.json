@@ -1,0 +1,10 @@
+{
+  "schema": "JM-workflow-binding-v1",
+  "workflow_id": "jumeng.short-drama.workflow",
+  "bundle_id": "jumeng.short-drama.core-skills",
+  "search_roots": [
+    ".."
+  ],
+  "max_depth": 1,
+  "path_hint": "D:\\短剧制作\\_通用短剧工作流"
+}

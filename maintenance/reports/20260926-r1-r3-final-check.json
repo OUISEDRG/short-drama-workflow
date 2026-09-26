@@ -1,0 +1,320 @@
+{
+  "ok": true,
+  "scope": "maintenance",
+  "runtime_structure_ok": true,
+  "lock_status": "not_requested",
+  "ready_for_project_execution": false,
+  "tests_run": 73,
+  "tests_passed": 73,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [],
+  "not_verified": [
+    "Python 3.10 未实机运行",
+    "跨物理磁盘移动未实测",
+    "无平台、生成或成片验收"
+  ],
+  "issues": [],
+  "runtime_digest": "0467d248aacc46872ed4b882dc98dc04290450188674c36d1ffa06abc5239cbd",
+  "source_digest": "38ec7bb4965f5ccb61906828c1a5551c6be9d94f9ca8ca3d7b557964abd5b7b7",
+  "protection_comparison": "passed",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "os": "Windows-10-10.0.19045-SP0",
+  "checked_at": "2026-09-26T04:27:29.021192+00:00",
+  "exit_code": 0,
+  "test_results": [
+    {
+      "test": "test_init.InitTests.test_A13_missing_resources_zero_write",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A14_F5_bad_ledger_zero_write",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A14_bad_json_structures_and_existing_gap",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A15_reinitialize_preserves_business_bytes",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A16_existing_missing_binding_or_lock",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A17_reserved_internal_and_junction",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A18_external_change_survives_recovery",
+      "status": "passed"
+    },
+    {
+      "test": "test_init.InitTests.test_A18_write_failure_limited_recovery",
+      "status": "passed"
+    },
+    {
+      "test": "test_lock.LockTests.test_A19_raw_bytes_changed",
+      "status": "passed"
+    },
+    {
+      "test": "test_lock.LockTests.test_A20_same_version_added_removed_invalid_hash",
+      "status": "passed"
+    },
+    {
+      "test": "test_lock.LockTests.test_A21_manifest_redirect_is_locked",
+      "status": "passed"
+    },
+    {
+      "test": "test_lock.LockTests.test_A35_maintenance_not_runtime_digest",
+      "status": "passed"
+    },
+    {
+      "test": "test_lock.LockTests.test_A36_root_readme_remains_locked",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A33_readonly_doctor_resolve_list_plan_check",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A39_baseline_invalid_and_changed",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A39_missing_zero_and_load_failure",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A40_failed_and_skipped_test_no_archive",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A41_source_change_aborts_release",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A42_allowlist_zip_hashes_and_exclusions",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A42_missing_or_forbidden_resource_refuses",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A43_no_overwrite_reports_and_archives",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A43_output_paths_use_tool_root",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_A43_release_io_failure_no_complete_output",
+      "status": "passed"
+    },
+    {
+      "test": "test_maintenance.MaintenanceTests.test_historical_fixture_allowlist_missing_and_unknown_refused",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A22_legacy_mapping_backup_and_upgrade",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A23_F2_unknown_authorities_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A24_custom_authority_conflicts",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A25_F3_reversed_markers_blocked",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A25_all_broken_block_forms",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A26_block_outside_bytes_and_authority_template",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A27_F4_cleared_blockers_recomputed",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A28_project_public_and_binding_stale",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A29_digest_and_arbitrary_targets",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A30_v2_content_upgrade",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A31_rebind_and_noop",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A32_external_change_not_overwritten_on_recovery",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A32_repeat_apply_no_duplicate_backup",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_A32_write_failure_restores_owned_bytes",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_custom_absolute_path_with_standard_suffix_is_blocked",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_custom_fragment_variants_are_blocked",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_custom_same_filename_different_parent_is_blocked_without_writes",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_custom_string_section_is_not_normalized_away",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_exact_historical_authorities_strings_and_objects_can_migrate",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_missing_unknown_lock_and_removed_resource_blocked",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_real_historical_projects_upgrade_after_both_outer_names_change",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_real_legacy_bad_hash_unknown_duplicate_and_traversal_are_blocked",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_real_legacy_lock_approval_apply_and_backups",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_real_legacy_lock_without_schema_can_be_planned",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_real_v1_0_project_end_to_end_upgrade",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_unknown_schema_less_json_is_not_trusted",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_v1_0_agents_internal_changes_duplicates_and_conflicts_block",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_v1_0_agents_preserves_custom_outside_bytes",
+      "status": "passed"
+    },
+    {
+      "test": "test_migration.MigrationTests.test_v1_0_default_agents_can_upgrade",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A01_bundle_rename_all_resources",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A02_common_rename",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A03_both_names_original_lock",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A04_workspace_move",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A05_F1_remote_parent_rename",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A06_unrelated_cwd_cli",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A07_duplicate_common_and_bundle",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A08_explicit_no_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A09_hint_boundaries_identity_missing",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A10_windows_case_same_directory_dedup",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A11_strict_json_manifest",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A12_paths_and_real_junction",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_A34_maintenance_is_excluded",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_explicit_relative_scope_before_project_exists",
+      "status": "passed"
+    },
+    {
+      "test": "test_paths.PathsTests.test_explicit_scope_required_for_drive_root",
+      "status": "passed"
+    },
+    {
+      "test": "test_production_contracts.ProductionContracts.test_A37_standalone_valid_invalid_exit_semantics",
+      "status": "passed"
+    },
+    {
+      "test": "test_production_contracts.ProductionContracts.test_A38_business_parameters_and_contracts_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_production_contracts.ProductionContracts.test_A44_temporary_export_names_e2e",
+      "status": "passed"
+    },
+    {
+      "test": "test_production_contracts.ProductionContracts.test_A45_stable_copy_isolated",
+      "status": "passed"
+    },
+    {
+      "test": "test_production_contracts.ProductionContracts.test_A46_readme_commands_plan_apply_cli",
+      "status": "passed"
+    }
+  ],
+  "test_output": "test_A13_missing_resources_zero_write (test_init.InitTests.test_A13_missing_resources_zero_write) ... ok\ntest_A14_F5_bad_ledger_zero_write (test_init.InitTests.test_A14_F5_bad_ledger_zero_write) ... ok\ntest_A14_bad_json_structures_and_existing_gap (test_init.InitTests.test_A14_bad_json_structures_and_existing_gap) ... ok\ntest_A15_reinitialize_preserves_business_bytes (test_init.InitTests.test_A15_reinitialize_preserves_business_bytes) ... ok\ntest_A16_existing_missing_binding_or_lock (test_init.InitTests.test_A16_existing_missing_binding_or_lock) ... ok\ntest_A17_reserved_internal_and_junction (test_init.InitTests.test_A17_reserved_internal_and_junction) ... ok\ntest_A18_external_change_survives_recovery (test_init.InitTests.test_A18_external_change_survives_recovery) ... ok\ntest_A18_write_failure_limited_recovery (test_init.InitTests.test_A18_write_failure_limited_recovery) ... ok\ntest_A19_raw_bytes_changed (test_lock.LockTests.test_A19_raw_bytes_changed) ... ok\ntest_A20_same_version_added_removed_invalid_hash (test_lock.LockTests.test_A20_same_version_added_removed_invalid_hash) ... ok\ntest_A21_manifest_redirect_is_locked (test_lock.LockTests.test_A21_manifest_redirect_is_locked) ... ok\ntest_A35_maintenance_not_runtime_digest (test_lock.LockTests.test_A35_maintenance_not_runtime_digest) ... ok\ntest_A36_root_readme_remains_locked (test_lock.LockTests.test_A36_root_readme_remains_locked) ... ok\ntest_A33_readonly_doctor_resolve_list_plan_check (test_maintenance.MaintenanceTests.test_A33_readonly_doctor_resolve_list_plan_check) ... ok\ntest_A39_baseline_invalid_and_changed (test_maintenance.MaintenanceTests.test_A39_baseline_invalid_and_changed) ... ok\ntest_A39_missing_zero_and_load_failure (test_maintenance.MaintenanceTests.test_A39_missing_zero_and_load_failure) ... ok\ntest_A40_failed_and_skipped_test_no_archive (test_maintenance.MaintenanceTests.test_A40_failed_and_skipped_test_no_archive) ... ok\ntest_A41_source_change_aborts_release (test_maintenance.MaintenanceTests.test_A41_source_change_aborts_release) ... ok\ntest_A42_allowlist_zip_hashes_and_exclusions (test_maintenance.MaintenanceTests.test_A42_allowlist_zip_hashes_and_exclusions) ... ok\ntest_A42_missing_or_forbidden_resource_refuses (test_maintenance.MaintenanceTests.test_A42_missing_or_forbidden_resource_refuses) ... ok\ntest_A43_no_overwrite_reports_and_archives (test_maintenance.MaintenanceTests.test_A43_no_overwrite_reports_and_archives) ... ok\ntest_A43_output_paths_use_tool_root (test_maintenance.MaintenanceTests.test_A43_output_paths_use_tool_root) ... ok\ntest_A43_release_io_failure_no_complete_output (test_maintenance.MaintenanceTests.test_A43_release_io_failure_no_complete_output) ... ok\ntest_historical_fixture_allowlist_missing_and_unknown_refused (test_maintenance.MaintenanceTests.test_historical_fixture_allowlist_missing_and_unknown_refused) ... ok\ntest_A22_legacy_mapping_backup_and_upgrade (test_migration.MigrationTests.test_A22_legacy_mapping_backup_and_upgrade) ... ok\ntest_A23_F2_unknown_authorities_preserved (test_migration.MigrationTests.test_A23_F2_unknown_authorities_preserved) ... ok\ntest_A24_custom_authority_conflicts (test_migration.MigrationTests.test_A24_custom_authority_conflicts) ... ok\ntest_A25_F3_reversed_markers_blocked (test_migration.MigrationTests.test_A25_F3_reversed_markers_blocked) ... ok\ntest_A25_all_broken_block_forms (test_migration.MigrationTests.test_A25_all_broken_block_forms) ... ok\ntest_A26_block_outside_bytes_and_authority_template (test_migration.MigrationTests.test_A26_block_outside_bytes_and_authority_template) ... ok\ntest_A27_F4_cleared_blockers_recomputed (test_migration.MigrationTests.test_A27_F4_cleared_blockers_recomputed) ... ok\ntest_A28_project_public_and_binding_stale (test_migration.MigrationTests.test_A28_project_public_and_binding_stale) ... ok\ntest_A29_digest_and_arbitrary_targets (test_migration.MigrationTests.test_A29_digest_and_arbitrary_targets) ... ok\ntest_A30_v2_content_upgrade (test_migration.MigrationTests.test_A30_v2_content_upgrade) ... ok\ntest_A31_rebind_and_noop (test_migration.MigrationTests.test_A31_rebind_and_noop) ... ok\ntest_A32_external_change_not_overwritten_on_recovery (test_migration.MigrationTests.test_A32_external_change_not_overwritten_on_recovery) ... ok\ntest_A32_repeat_apply_no_duplicate_backup (test_migration.MigrationTests.test_A32_repeat_apply_no_duplicate_backup) ... ok\ntest_A32_write_failure_restores_owned_bytes (test_migration.MigrationTests.test_A32_write_failure_restores_owned_bytes) ... ok\ntest_custom_absolute_path_with_standard_suffix_is_blocked (test_migration.MigrationTests.test_custom_absolute_path_with_standard_suffix_is_blocked) ... ok\ntest_custom_fragment_variants_are_blocked (test_migration.MigrationTests.test_custom_fragment_variants_are_blocked) ... ok\ntest_custom_same_filename_different_parent_is_blocked_without_writes (test_migration.MigrationTests.test_custom_same_filename_different_parent_is_blocked_without_writes) ... ok\ntest_custom_string_section_is_not_normalized_away (test_migration.MigrationTests.test_custom_string_section_is_not_normalized_away) ... ok\ntest_exact_historical_authorities_strings_and_objects_can_migrate (test_migration.MigrationTests.test_exact_historical_authorities_strings_and_objects_can_migrate) ... ok\ntest_missing_unknown_lock_and_removed_resource_blocked (test_migration.MigrationTests.test_missing_unknown_lock_and_removed_resource_blocked) ... ok\ntest_real_historical_projects_upgrade_after_both_outer_names_change (test_migration.MigrationTests.test_real_historical_projects_upgrade_after_both_outer_names_change) ... ok\ntest_real_legacy_bad_hash_unknown_duplicate_and_traversal_are_blocked (test_migration.MigrationTests.test_real_legacy_bad_hash_unknown_duplicate_and_traversal_are_blocked) ... ok\ntest_real_legacy_lock_approval_apply_and_backups (test_migration.MigrationTests.test_real_legacy_lock_approval_apply_and_backups) ... ok\ntest_real_legacy_lock_without_schema_can_be_planned (test_migration.MigrationTests.test_real_legacy_lock_without_schema_can_be_planned) ... ok\ntest_real_v1_0_project_end_to_end_upgrade (test_migration.MigrationTests.test_real_v1_0_project_end_to_end_upgrade) ... ok\ntest_unknown_schema_less_json_is_not_trusted (test_migration.MigrationTests.test_unknown_schema_less_json_is_not_trusted) ... ok\ntest_v1_0_agents_internal_changes_duplicates_and_conflicts_block (test_migration.MigrationTests.test_v1_0_agents_internal_changes_duplicates_and_conflicts_block) ... ok\ntest_v1_0_agents_preserves_custom_outside_bytes (test_migration.MigrationTests.test_v1_0_agents_preserves_custom_outside_bytes) ... ok\ntest_v1_0_default_agents_can_upgrade (test_migration.MigrationTests.test_v1_0_default_agents_can_upgrade) ... ok\ntest_A01_bundle_rename_all_resources (test_paths.PathsTests.test_A01_bundle_rename_all_resources) ... ok\ntest_A02_common_rename (test_paths.PathsTests.test_A02_common_rename) ... ok\ntest_A03_both_names_original_lock (test_paths.PathsTests.test_A03_both_names_original_lock) ... ok\ntest_A04_workspace_move (test_paths.PathsTests.test_A04_workspace_move) ... ok\ntest_A05_F1_remote_parent_rename (test_paths.PathsTests.test_A05_F1_remote_parent_rename) ... ok\ntest_A06_unrelated_cwd_cli (test_paths.PathsTests.test_A06_unrelated_cwd_cli) ... ok\ntest_A07_duplicate_common_and_bundle (test_paths.PathsTests.test_A07_duplicate_common_and_bundle) ... ok\ntest_A08_explicit_no_fallback (test_paths.PathsTests.test_A08_explicit_no_fallback) ... ok\ntest_A09_hint_boundaries_identity_missing (test_paths.PathsTests.test_A09_hint_boundaries_identity_missing) ... ok\ntest_A10_windows_case_same_directory_dedup (test_paths.PathsTests.test_A10_windows_case_same_directory_dedup) ... ok\ntest_A11_strict_json_manifest (test_paths.PathsTests.test_A11_strict_json_manifest) ... ok\ntest_A12_paths_and_real_junction (test_paths.PathsTests.test_A12_paths_and_real_junction) ... ok\ntest_A34_maintenance_is_excluded (test_paths.PathsTests.test_A34_maintenance_is_excluded) ... ok\ntest_explicit_relative_scope_before_project_exists (test_paths.PathsTests.test_explicit_relative_scope_before_project_exists) ... ok\ntest_explicit_scope_required_for_drive_root (test_paths.PathsTests.test_explicit_scope_required_for_drive_root) ... ok\ntest_A37_standalone_valid_invalid_exit_semantics (test_production_contracts.ProductionContracts.test_A37_standalone_valid_invalid_exit_semantics) ... ok\ntest_A38_business_parameters_and_contracts_preserved (test_production_contracts.ProductionContracts.test_A38_business_parameters_and_contracts_preserved) ... ok\ntest_A44_temporary_export_names_e2e (test_production_contracts.ProductionContracts.test_A44_temporary_export_names_e2e) ... ok\ntest_A45_stable_copy_isolated (test_production_contracts.ProductionContracts.test_A45_stable_copy_isolated) ... ok\ntest_A46_readme_commands_plan_apply_cli (test_production_contracts.ProductionContracts.test_A46_readme_commands_plan_apply_cli) ... ok\n\n----------------------------------------------------------------------\nRan 73 tests in 22.804s\n\nOK\n"
+}

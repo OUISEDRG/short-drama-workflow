@@ -1,0 +1,26 @@
+{
+  "workflow_version": "3.5",
+  "common_root": "D:\\短剧制作\\_通用短剧工作流",
+  "files": {
+    "AGENTS.md": "cddd7911a9e083622c91db79a93de67089205abdc29b6f0dff3c97a115b021ec",
+    "AGENTS.project.template.md": "a4cad3529cd9d1964571e97950685aae674c745a9da7f9793d84a9f5010e3209",
+    "Codex适配剧梦提示词库（模版）0914\\README.md": "6986b8cc66c47f18d2c464deb5fb4d7d99f28ae02ed21c6764c57a7d2ac8e7a8",
+    "Codex适配剧梦提示词库（模版）0914\\ai-short-drama-director\\SKILL.md": "e6aa75674151bdd93d8cd53df2b79c4497112173720305fe6c7947f18c9506ee",
+    "Codex适配剧梦提示词库（模版）0914\\ai-short-drama-director\\references\\AI短剧导演核心规范_v3.4.md": "0c374059b70b742bb8a330b94722b6677c1f083e10131fc1e973e4e11dce9abb",
+    "Codex适配剧梦提示词库（模版）0914\\cinematic-acting-execution-library\\SKILL.md": "50dde67d4e44e0a5b463bd83ffe136e0bcca2f8be777416c81351b3a2926c108",
+    "Codex适配剧梦提示词库（模版）0914\\dreamina-sd25-prompt-adapter\\SKILL.md": "3e3c69ba511876b3a2bb96a1167a8f0c00973f5121472cf2df7e6c480abe9aef",
+    "Codex适配剧梦提示词库（模版）0914\\dreamina-short-drama-production\\SKILL.md": "cb7ebdff0ccc6b146b2416b0a3640bf9d116ada3306ac011b02224e14dfe3655",
+    "Codex适配剧梦提示词库（模版）0914\\dreamina-short-drama-production\\assets\\本段执行清单.template.json": "2cf4cbb9c453099d4d2d8730a0bc21f9a2ee23672eef9a32861759aee8686560",
+    "Codex适配剧梦提示词库（模版）0914\\dreamina-short-drama-production\\assets\\项目参数.template.json": "c24f196b7054e43d1886dfc34da37ddb512dc9c2e8be9b127a83fbe874f6f71b",
+    "Codex适配剧梦提示词库（模版）0914\\dreamina-short-drama-production\\references\\剧梦短剧制作总控_v3.4.md": "9af1c03db9ecd8d9142f25fb21946f9be8aa6db627e6ada54f473522c52bb182",
+    "Codex适配剧梦提示词库（模版）0914\\screenplay-prebreakdown-analysis\\SKILL.md": "668378d443f7fba59386263d49aa7ee4b270ddff83db1f8fd497a497ab553272",
+    "Codex适配剧梦提示词库（模版）0914\\sd25-video-prompt-compiler\\SKILL.md": "31fbef4c63b2b1883deca219631708c7d78f2ed70d25cfbd10ba761226f6db94",
+    "Codex适配剧梦提示词库（模版）0914\\sd25-video-prompt-compiler\\references\\视频模型工作流配置_SD2.5_v3.4.md": "927da557f0997238a28aa151727e935ddabcb30d0b7abb18478ba1ffaec9f7f7",
+    "tools\\init_project.py": "9c16729bb5bba80a83df81508cdea868266fc5421ff3720cfc17a7f5f1fd93a4",
+    "tools\\workflow_check.py": "bb64836a0449f4c11c91768cf976e8aa4bfd71f932be1293084129f5ce705717",
+    "制作台账.template.json": "9a85cd999540ac579f76a2b73bd082532a5a2b2407b7a35db1c152679ea7b0f4",
+    "工作流规则索引.md": "0c36fbae199680185e0b93910db282c635b1f5d5cd0ff8ccee32226182296198",
+    "视频提示词输出规范_资产全名版.md": "0ed00d95d20bee47a9c1462fc41b43425693051c7038a60425477d6eb3e913ad",
+    "项目启动说明.template.md": "40e30428db8f489204cff92da795055c446f5a0a6bc7822537de3c628dd701c1"
+  }
+}

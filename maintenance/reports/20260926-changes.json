@@ -1,0 +1,129 @@
+{
+  "schema": "JM-maintenance-changes-v1",
+  "baseline": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\baseline.json",
+  "modified": [
+    {
+      "path": ".gitignore",
+      "before_sha256": "8431bbab113a103056a6f8e8580f8d9286ae36d8b38c784155e8c8db21212da1",
+      "after_sha256": "a4f14dcdf7b692a049c2c51ab8c6913026fab6f0bcf3bdd69e55270c19787da9",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\.gitignore"
+    },
+    {
+      "path": "AGENTS.md",
+      "before_sha256": "0f7d660ed490de057f7e8441a48582635bcd39f6e939e386ef10398c7435a31b",
+      "after_sha256": "95718d4837fc22b0f2a62ea61c9b3b530e76039db2bba81f845100b76076afc4",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\AGENTS.md"
+    },
+    {
+      "path": "AGENTS.project.template.md",
+      "before_sha256": "51fc822c513cf83533d5bb70eb376151838617bc1f4cca6e6b6574948e416a63",
+      "after_sha256": "647122bd35c25107340f8ebc133e33e73043d4ecbddb7d05f03e4574fdf1992e",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\AGENTS.project.template.md"
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "287c81c84d72b0deb22cb59ddb8d8354a4eb423853d1cde0e93cce453873e95f",
+      "after_sha256": "3dfea1e2eada18cf1571d7caf1df6b4295eadefaad14833f1c6e262d415e27fc",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\README.md"
+    },
+    {
+      "path": "tools/init_project.py",
+      "before_sha256": "d30c567b068b1fe2ec6f25e806b1d00a25abaa7056fef270bc39cf239fc9cf29",
+      "after_sha256": "50c0afe006f594103e20cd418d3387b7915b29e2dc64a9af5315e303a41c09b1",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\tools\\init_project.py"
+    },
+    {
+      "path": "tools/migrate_workflow.py",
+      "before_sha256": "c29193c7091b4692dada0614c7c50d905fd3ad5f25765ecd698535f189daf87a",
+      "after_sha256": "06f34750d58b06c6bf38dbf91dc4e16a097361ba6d6a0144486b282603b9721b",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\tools\\migrate_workflow.py"
+    },
+    {
+      "path": "tools/workflow_lock.py",
+      "before_sha256": "408f09352b9dd55c599721a2598743f34ffa4b435c6186d81c39ae4d271c46d6",
+      "after_sha256": "94915bc6ffb3c7f2b1772804c6bfcfcb415ab333183c2aa68e19165ce242f4a9",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\tools\\workflow_lock.py"
+    },
+    {
+      "path": "tools/workflow_paths.py",
+      "before_sha256": "fbc3e3b773a67f7e6408dd33f6d4568a450e1bb4614eccd2af272326fb257575",
+      "after_sha256": "88de98baff760a6d1c136c6851fe52ce8dc2c91101138152f0808ccbfcccad24",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\tools\\workflow_paths.py"
+    },
+    {
+      "path": "workflow.manifest.json",
+      "before_sha256": "bc9b0d0e4e06dff30447aa23795c068dc86c19fda438b9277524df7a097f7af9",
+      "after_sha256": "41c140de2ce9c50318edbf361e6b8161e8f43814de2d370676ad8523d4f8106b",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\workflow.manifest.json"
+    },
+    {
+      "path": "工作流规则索引.md",
+      "before_sha256": "8ee0bf7c894e515df0fdd1a4e3f8784729aa39e365cbcee0d120a3bc37205af5",
+      "after_sha256": "5b3bd14b2748770221b71822c0c1ffe0b265890a80b17f2794db43a1ca4b7ef2",
+      "backup_file": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\originals\\工作流规则索引.md"
+    }
+  ],
+  "added_sources": [
+    {
+      "path": "maintenance/README.md",
+      "after_sha256": "d85b6fb6ad6be201932c98794881439a19dc1616d4e194da9f9626c93ca7a975"
+    },
+    {
+      "path": "maintenance/CHANGELOG.md",
+      "after_sha256": "d709f28659ddf699eb55f23cb162329249e613fd30f5043f51cef7a7a0069144"
+    },
+    {
+      "path": "maintenance/maintain.py",
+      "after_sha256": "bde14ce705d324819674648ecfb0aae8ed5727dbedc2c8860eb1ff8e52370618"
+    },
+    {
+      "path": "maintenance/tests/support.py",
+      "after_sha256": "348fc70f776a45d9d15f5321f11591adf36923ea797fcfb180c55ab4f11c8dc2"
+    },
+    {
+      "path": "maintenance/tests/test_paths.py",
+      "after_sha256": "fe7bfc94f3003063511b96b1c47f8ef6f3e03ffca1231ccfe276a15bf4d82e30"
+    },
+    {
+      "path": "maintenance/tests/test_lock.py",
+      "after_sha256": "bb15e0a56e320bc9bcfb550db4593da4df122d13d4375522c40708ed9542a110"
+    },
+    {
+      "path": "maintenance/tests/test_init.py",
+      "after_sha256": "c9ab26e05a3a5317ded484b0c2b9dfcb22f026b737db0facff565c6a1699af49"
+    },
+    {
+      "path": "maintenance/tests/test_migration.py",
+      "after_sha256": "5de8ff11ddd1208d5d1c80e869b0fad4558e471c8f98f14dd476ad2f7da74e11"
+    },
+    {
+      "path": "maintenance/tests/test_maintenance.py",
+      "after_sha256": "6897cf1f7c0f0128e42ad04351ec3d686f6ea3566ef243faea8523d0a1cab718"
+    },
+    {
+      "path": "maintenance/tests/test_production_contracts.py",
+      "after_sha256": "adf9bf89b27d9128c99005b07ec95cd601e2aac44ce2c99de2e8e42ea7f075b3"
+    }
+  ],
+  "unchanged_original_files": [
+    "Codex适配剧梦/README.md",
+    "Codex适配剧梦/ai-short-drama-director/SKILL.md",
+    "Codex适配剧梦/ai-short-drama-director/references/AI短剧导演核心规范_v3.4.md",
+    "Codex适配剧梦/bundle.manifest.json",
+    "Codex适配剧梦/cinematic-acting-execution-library/SKILL.md",
+    "Codex适配剧梦/dreamina-sd25-prompt-adapter/SKILL.md",
+    "Codex适配剧梦/dreamina-short-drama-production/SKILL.md",
+    "Codex适配剧梦/dreamina-short-drama-production/assets/本段执行清单.template.json",
+    "Codex适配剧梦/dreamina-short-drama-production/assets/项目参数.template.json",
+    "Codex适配剧梦/dreamina-short-drama-production/references/剧梦短剧制作总控_v3.4.md",
+    "Codex适配剧梦/screenplay-prebreakdown-analysis/SKILL.md",
+    "Codex适配剧梦/sd25-video-prompt-compiler/SKILL.md",
+    "Codex适配剧梦/sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md",
+    "tools/workflow_check.py",
+    "制作台账.template.json",
+    "视频提示词输出规范_资产全名版.md",
+    "项目启动说明.template.md"
+  ],
+  "source_digest": "c874ad16af34e3da9751b35308a9c551b071e91ea287d933d7f95da528a4d50c",
+  "git_commit_push_performed": false
+}

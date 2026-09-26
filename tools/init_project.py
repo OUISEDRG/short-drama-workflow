@@ -10,10 +10,10 @@ import sys
 from typing import Any
 
 try:
-    from .workflow_paths import discover_from_tool, load_layout, reject_links, resource_path, WorkflowError, read_binding
+    from .workflow_paths import discover_from_tool, load_layout, reject_links, resource_path, WorkflowError, read_binding, make_binding, parse_json, json_bytes, SKILLS
     from .workflow_lock import make_lock, read_lock, verify_lock
 except ImportError:
-    from workflow_paths import discover_from_tool, load_layout, reject_links, resource_path, WorkflowError, read_binding
+    from workflow_paths import discover_from_tool, load_layout, reject_links, resource_path, WorkflowError, read_binding, make_binding, parse_json, json_bytes, SKILLS
     from workflow_lock import make_lock, read_lock, verify_lock
 
 DIRS = ('人物', '场景', '道具', '音色', '成片', '视频提示词', '提交快照')
@@ -38,20 +38,40 @@ def _json_bytes(data: Any) -> bytes:
     return (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode('utf-8')
 
 
-def _binding(project: Path, common: Path) -> dict[str, Any]:
-    roots = ['..']
-    if common.parent.resolve() != project.parent.resolve():
-        try:
-            extra = os.path.relpath(common, project)
-        except ValueError:
-            extra = str(common)
-        roots.append(extra.replace('\\', '/') if not Path(extra).is_absolute() else extra)
-    return {'schema': 'JM-workflow-binding-v1', 'workflow_id': 'jumeng.short-drama.workflow',
-            'bundle_id': 'jumeng.short-drama.core-skills', 'search_roots': roots,
-            'max_depth': 1, 'path_hint': str(common)}
+def template_content(layout) -> dict[str, bytes]:
+    content = {target: resource_path(layout, rid).read_bytes() for target, rid in TEMPLATES.items()}
+    params = parse_json(content['项目参数.json'])
+    if (params.get('schema') != 'JM-v3.5' or not isinstance(params.get('project'), dict)
+            or not isinstance(params.get('authorities'), dict)
+            or not isinstance(params['authorities'].get('skills'), dict)):
+        raise WorkflowError('TEMPLATE_INVALID', '项目参数模板 schema/project/authorities 无效')
+    for rid, name in SKILLS.items():
+        authority = params['authorities']['skills'].get(name)
+        if not isinstance(authority, dict) or authority.get('resource_id') != rid:
+            raise WorkflowError('TEMPLATE_INVALID', f'参数模板 Skill authority 无效：{rid}')
+    ledger = parse_json(content['制作台账.json'])
+    if (ledger.get('schema') != 'JM-ledger-v1' or not isinstance(ledger.get('segments'), list)
+            or not isinstance(ledger.get('segment_fields'), list)
+            or not isinstance(ledger.get('legacy_sources'), list)
+            or not isinstance(ledger.get('current_mode'), str) or 'next_action' not in ledger):
+        raise WorkflowError('TEMPLATE_INVALID', '制作台账模板必要结构无效')
+    if any(not isinstance(x, str) for x in ledger['segment_fields']):
+        raise WorkflowError('TEMPLATE_INVALID', '台账 segment_fields 必须为字符串数组')
+    # 同样预检单段 JSON 和文本编码，不把坏模板留到项目创建后。
+    segment = parse_json(resource_path(layout, 'template.segment_check').read_bytes())
+    if segment.get('schema') != 'JM-segment-check-v1':
+        raise WorkflowError('TEMPLATE_INVALID', '单段清单模板 schema 无效')
+    for raw in content.values():
+        raw.decode('utf-8-sig')
+    from_block = content['AGENTS.md']
+    start, end = b'<!-- WORKFLOW-BOOTSTRAP START -->', b'<!-- WORKFLOW-BOOTSTRAP END -->'
+    if from_block.count(start) != 1 or from_block.count(end) != 1 or from_block.index(start) >= from_block.index(end):
+        raise WorkflowError('TEMPLATE_INVALID', '项目 AGENTS 模板管理块无效')
+    return content
 
 
-def initialize(root: Path, name: str, *, common_root: Path | None = None) -> dict[str, Any]:
+def initialize(root: Path, name: str, *, common_root: Path | None = None,
+               search_roots: list[Path] | None = None) -> dict[str, Any]:
     validate_name(name)
     layout = load_layout(common_root) if common_root is not None else discover_from_tool(Path(__file__))
     reject_links(Path(root))
@@ -80,15 +100,11 @@ def initialize(root: Path, name: str, *, common_root: Path | None = None) -> dic
         if not verify_lock(layout, read_lock(lock_path))['ok']:
             raise WorkflowError('LOCK_CHANGED', '已有项目版本锁与当前内容不同；请先审查迁移')
     # 所有读取、JSON 解析与锁构造均先于写入。
-    content: dict[str, bytes] = {}
-    for target, rid in TEMPLATES.items():
-        content[target] = resource_path(layout, rid).read_bytes()
-    params = json.loads(content['项目参数.json'].decode('utf-8-sig'))
-    if not isinstance(params, dict) or not isinstance(params.get('project'), dict):
-        raise ValueError('项目参数模板结构无效')
+    content = template_content(layout)
+    params = parse_json(content['项目参数.json'])
     params['project'].update({'name': name, 'root': str(project), 'common_root': str(layout.root)})
     content['项目参数.json'] = _json_bytes(params)
-    content['工作流绑定.json'] = _json_bytes(_binding(project, layout.root))
+    content['工作流绑定.json'] = json_bytes(make_binding(project, layout, search_roots=search_roots))
     content['工作流版本锁.json'] = _json_bytes(make_lock(layout))
     for folder in DIRS:
         target = project / folder
@@ -125,7 +141,7 @@ def initialize(root: Path, name: str, *, common_root: Path | None = None) -> dic
         for path, planned in reversed(list(created_files.items())):
             try:
                 actual = path.read_bytes()
-                if actual == planned[:len(actual)]:
+                if actual == planned:
                     path.unlink()
                 else:
                     residual.append(str(path))
@@ -146,10 +162,11 @@ def main() -> int:
     parser.add_argument('--root', type=Path, help='新项目的创建父目录；默认公共工作流的父目录')
     parser.add_argument('--project-name', required=True)
     parser.add_argument('--common', type=Path, help='明确指定公共工作流目录')
+    parser.add_argument('--search-root', type=Path, action='append', help='显式浅层搜索范围；相对项目目录')
     args = parser.parse_args()
     try:
         layout = load_layout(args.common) if args.common else discover_from_tool(Path(__file__))
-        result = initialize(args.root or layout.root.parent, args.project_name, common_root=layout.root)
+        result = initialize(args.root or layout.root.parent, args.project_name, common_root=layout.root, search_roots=args.search_root)
     except (OSError, ValueError) as exc:
         parser.exit(2, f'初始化停止：{exc}\n')
     if hasattr(sys.stdout, 'reconfigure'):

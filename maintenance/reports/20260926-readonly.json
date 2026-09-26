@@ -1,0 +1,61 @@
+{
+  "schema": "JM-readonly-verification-v1",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/workflow_paths.py",
+        "doctor",
+        "--json"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "lock_status": "not_requested",
+      "tests_run": null
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/workflow_paths.py",
+        "list-resources",
+        "--json"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "lock_status": "not_requested",
+      "tests_run": null
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/workflow_paths.py",
+        "resolve",
+        "skill.director",
+        "--json"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "lock_status": "not_requested",
+      "tests_run": null
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "maintenance/maintain.py",
+        "check",
+        "--json"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "lock_status": "not_requested",
+      "tests_run": 58
+    }
+  ],
+  "source_and_report_file_set_unchanged": true,
+  "all_existing_file_hashes_unchanged": true,
+  "files_checked": 70
+}

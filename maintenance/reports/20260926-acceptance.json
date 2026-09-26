@@ -1,0 +1,602 @@
+{
+  "schema": "JM-maintenance-acceptance-v1",
+  "ok": true,
+  "scope": "local_public_workflow_maintenance",
+  "created_at": "2026-09-26T11:59:11.516861+08:00",
+  "workflow_root": "D:\\短剧制作\\_通用短剧工作流",
+  "rule_version": "3.5",
+  "infrastructure_version": "1.1.0",
+  "baseline": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-113553\\baseline.json",
+  "git_initial_status": "clean (read before backup creation)",
+  "git_final_status": " M .gitignore\n M AGENTS.md\n M AGENTS.project.template.md\n M README.md\n M tools/init_project.py\n M tools/migrate_workflow.py\n M tools/workflow_lock.py\n M tools/workflow_paths.py\n M workflow.manifest.json\n M 工作流规则索引.md\n?? maintenance/\n",
+  "git_head": "6d2ca1b67ea808d12d8254cecbba8c80fd251d01",
+  "check_report": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\reports\\20260926-check.json",
+  "tests_run": 58,
+  "tests_passed": 58,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [],
+  "matrix": [
+    {
+      "id": "A01",
+      "requirement": "只改包外层名",
+      "expected": "全部 Skill/reference/模板可定位",
+      "methods": [
+        "test_paths.PathsTests.test_A01_bundle_rename_all_resources"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A02",
+      "requirement": "只改公共外层名",
+      "expected": "同级项目可重新定位",
+      "methods": [
+        "test_paths.PathsTests.test_A02_common_rename"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A03",
+      "requirement": "两个外层一起改",
+      "expected": "不改锁仍通过原始字节核验",
+      "methods": [
+        "test_paths.PathsTests.test_A03_both_names_original_lock"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A04",
+      "requirement": "整个工作区搬家",
+      "expected": "保留布局可恢复，旧位置仅为提示",
+      "methods": [
+        "test_paths.PathsTests.test_A04_workspace_move"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A05",
+      "requirement": "公共库与项目异地，再改公共名",
+      "expected": "普通已授权父范围内仍可找到，覆盖 F1",
+      "methods": [
+        "test_paths.PathsTests.test_A05_F1_remote_parent_rename"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A06",
+      "requirement": "无关 cwd 调用脚本",
+      "expected": "从工具真实位置定位，不读错模板",
+      "methods": [
+        "test_paths.PathsTests.test_A06_unrelated_cwd_cli"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A07",
+      "requirement": "两份相同 ID 公共库/包",
+      "expected": "报歧义，相同哈希也不挑第一份",
+      "methods": [
+        "test_paths.PathsTests.test_A07_duplicate_common_and_bundle"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A08",
+      "requirement": "显式指定 common",
+      "expected": "仅验证指定目标；错误无静默回退",
+      "methods": [
+        "test_paths.PathsTests.test_A08_explicit_no_fallback"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A09",
+      "requirement": "hint 错身份/范围外/不存在",
+      "expected": "按身份与边界处理，不扩大搜索",
+      "methods": [
+        "test_paths.PathsTests.test_A09_hint_boundaries_identity_missing"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A10",
+      "requirement": "Windows 中文空格、大小写、多种同目录表达",
+      "expected": "同一真实位置去重；不同副本仍歧义",
+      "methods": [
+        "test_paths.PathsTests.test_A10_windows_case_same_directory_dedup"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A11",
+      "requirement": "清单 BOM、坏 JSON、重复键、错误 schema/类型",
+      "expected": "BOM 可读，其余明确失败",
+      "methods": [
+        "test_paths.PathsTests.test_A11_strict_json_manifest"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A12",
+      "requirement": "资源 ../、绝对、UNC、链接/junction",
+      "expected": "不越界读取，不循环；真实权限限制明示",
+      "methods": [
+        "test_paths.PathsTests.test_A12_paths_and_real_junction"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A13",
+      "requirement": "缺 Skill、reference 或模板",
+      "expected": "明确资源 ID；初始化零落盘",
+      "methods": [
+        "test_init.InitTests.test_A13_missing_resources_zero_write"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A14",
+      "requirement": "台账模板非法 JSON/结构，参数重复键",
+      "expected": "创建前失败，覆盖 F5",
+      "methods": [
+        "test_init.InitTests.test_A14_F5_bad_ledger_zero_write",
+        "test_init.InitTests.test_A14_bad_json_structures_and_existing_gap"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A15",
+      "requirement": "重复初始化与已有业务数据",
+      "expected": "原字节保留，不重置项目",
+      "methods": [
+        "test_init.InitTests.test_A15_reinitialize_preserves_business_bytes"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A16",
+      "requirement": "已有项目缺绑定/旧锁/无锁",
+      "expected": "提示迁移或证据缺口，不自动接受当前版本",
+      "methods": [
+        "test_init.InitTests.test_A16_existing_missing_binding_or_lock"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A17",
+      "requirement": "目标在公共库内部/保留名称/链接路径",
+      "expected": "拒绝，不留下项目",
+      "methods": [
+        "test_init.InitTests.test_A17_reserved_internal_and_junction"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A18",
+      "requirement": "初始化阶段性写入失败及外部更改",
+      "expected": "只清理本次且未被外部修改的内容",
+      "methods": [
+        "test_init.InitTests.test_A18_external_change_survives_recovery",
+        "test_init.InitTests.test_A18_write_failure_limited_recovery"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A19",
+      "requirement": "改一份已锁资源字节",
+      "expected": "失败并指出 ID，不自动改锁",
+      "methods": [
+        "test_lock.LockTests.test_A19_raw_bytes_changed"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A20",
+      "requirement": "同版本号但内容变化/新增/删除资源",
+      "expected": "覆盖差异可见，不能仅看版本号",
+      "methods": [
+        "test_lock.LockTests.test_A20_same_version_added_removed_invalid_hash"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A21",
+      "requirement": "manifest 重新指向其他内容",
+      "expected": "清单自身变化也被发现",
+      "methods": [
+        "test_lock.LockTests.test_A21_manifest_redirect_is_locked"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A22",
+      "requirement": "旧物理路径锁迁移",
+      "expected": "映射逐项可审查；批准后保留原锁备份",
+      "methods": [
+        "test_migration.MigrationTests.test_A22_legacy_mapping_backup_and_upgrade"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A23",
+      "requirement": "authorities 各层未知自定义字段",
+      "expected": "迁移后保留，覆盖 F2",
+      "methods": [
+        "test_migration.MigrationTests.test_A23_F2_unknown_authorities_preserved"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A24",
+      "requirement": "已知 authority 有明确自定义来源",
+      "expected": "不擅自覆盖，冲突可审查",
+      "methods": [
+        "test_migration.MigrationTests.test_A24_custom_authority_conflicts"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A25",
+      "requirement": "AGENTS 逆序/重复/嵌套/缺半边",
+      "expected": "写入前拒绝，覆盖 F3",
+      "methods": [
+        "test_migration.MigrationTests.test_A25_F3_reversed_markers_blocked",
+        "test_migration.MigrationTests.test_A25_all_broken_block_forms"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A26",
+      "requirement": "正常管理块更新",
+      "expected": "块外字节保留，使用同一模板块",
+      "methods": [
+        "test_migration.MigrationTests.test_A26_block_outside_bytes_and_authority_template"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A27",
+      "requirement": "清空计划 blockers 并重新批准",
+      "expected": "重新计算仍有阻塞则零写入，覆盖 F4",
+      "methods": [
+        "test_migration.MigrationTests.test_A27_F4_cleared_blockers_recomputed"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A28",
+      "requirement": "项目或公共资源在计划后变化",
+      "expected": "PLAN_STALE，零写入",
+      "methods": [
+        "test_migration.MigrationTests.test_A28_project_public_and_binding_stale"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A29",
+      "requirement": "批准摘要不匹配/计划任意写入目标",
+      "expected": "拒绝，不执行计划中的代码或路径",
+      "methods": [
+        "test_migration.MigrationTests.test_A29_digest_and_arbitrary_targets"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A30",
+      "requirement": "v2→v2 内容升级",
+      "expected": "差异及授权可见，批准后通过新锁",
+      "methods": [
+        "test_migration.MigrationTests.test_A30_v2_content_upgrade"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A31",
+      "requirement": "仅重绑定与相同版本 no-op",
+      "expected": "不伪造内容升级；no-op 零写入",
+      "methods": [
+        "test_migration.MigrationTests.test_A31_rebind_and_noop"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A32",
+      "requirement": "重复 apply/迁移写入故障",
+      "expected": "不重复备份，不误覆盖用户后续修改",
+      "methods": [
+        "test_migration.MigrationTests.test_A32_external_change_not_overwritten_on_recovery",
+        "test_migration.MigrationTests.test_A32_repeat_apply_no_duplicate_backup",
+        "test_migration.MigrationTests.test_A32_write_failure_restores_owned_bytes"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A33",
+      "requirement": "doctor/resolve/list/default plan/default check",
+      "expected": "正式源文件集合、字节和锁均不变",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A33_readonly_doctor_resolve_list_plan_check"
+      ],
+      "result": "passed",
+      "additional_evidence": [
+        "无 --report 默认 doctor/list/resolve/check 前后 70 个源/备份/报告文件的集合和哈希均不变"
+      ]
+    },
+    {
+      "id": "A34",
+      "requirement": "maintenance 内含复制清单、报告和备份",
+      "expected": "不成为运行候选或运行锁资源",
+      "methods": [
+        "test_paths.PathsTests.test_A34_maintenance_is_excluded"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A35",
+      "requirement": "修改 maintenance 文档或测试",
+      "expected": "原运行内容锁不变；维护源码摘要改变",
+      "methods": [
+        "test_lock.LockTests.test_A35_maintenance_not_runtime_digest"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A36",
+      "requirement": "修改当前已锁根 README",
+      "expected": "仍报告内容变化，不因归类取消核验",
+      "methods": [
+        "test_lock.LockTests.test_A36_root_readme_remains_locked"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A37",
+      "requirement": "原检查器单独运行合法/非法单段输入",
+      "expected": "无新依赖，原返回语义保持",
+      "methods": [
+        "test_production_contracts.ProductionContracts.test_A37_standalone_valid_invalid_exit_semantics"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A38",
+      "requirement": "六 Skill、三 reference、输出规范及业务字段",
+      "expected": "对照真实基线无未经授权语义改动",
+      "methods": [
+        "test_production_contracts.ProductionContracts.test_A38_business_parameters_and_contracts_preserved"
+      ],
+      "result": "passed",
+      "additional_evidence": [
+        "真实修改前 baseline 11 个原始字节保护 + 完整参数业务对比通过"
+      ]
+    },
+    {
+      "id": "A39",
+      "requirement": "缺测试目录/0项测试/测试加载失败",
+      "expected": "check 失败，不能零测试绿色",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A39_baseline_invalid_and_changed",
+        "test_maintenance.MaintenanceTests.test_A39_missing_zero_and_load_failure"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A40",
+      "requirement": "release 前测试失败或必需测试跳过",
+      "expected": "不生成正式成功归档",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A40_failed_and_skipped_test_no_archive"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A41",
+      "requirement": "检查后源文件变化",
+      "expected": "停止发布，不打包未验字节",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A41_source_change_aborts_release"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A42",
+      "requirement": "归档含备份、真实项目、递归包或缺资源",
+      "expected": "拒绝；安全内容完整且解包可用",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A42_allowlist_zip_hashes_and_exclusions",
+        "test_maintenance.MaintenanceTests.test_A42_missing_or_forbidden_resource_refuses"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A43",
+      "requirement": "发布包或报告目标已存在/中途 IO 失败",
+      "expected": "不覆盖、不留下冒充完整的结果",
+      "methods": [
+        "test_maintenance.MaintenanceTests.test_A43_no_overwrite_reports_and_archives",
+        "test_maintenance.MaintenanceTests.test_A43_output_paths_use_tool_root",
+        "test_maintenance.MaintenanceTests.test_A43_release_io_failure_no_complete_output"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A44",
+      "requirement": "解包发布版本后改两个外层名",
+      "expected": "新项目、绑定、锁和单段检查仍正常",
+      "methods": [
+        "test_production_contracts.ProductionContracts.test_A44_temporary_export_names_e2e"
+      ],
+      "result": "passed",
+      "additional_evidence": [
+        "真实 release 解包后的两个外层改名、新建项目、绑定、锁与单段检查 smoke 全部通过"
+      ]
+    },
+    {
+      "id": "A45",
+      "requirement": "维护库更新而项目绑定另一稳定发布副本",
+      "expected": "稳定副本及该项目原锁不变",
+      "methods": [
+        "test_production_contracts.ProductionContracts.test_A45_stable_copy_isolated"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    },
+    {
+      "id": "A46",
+      "requirement": "根 README 的三种操作与迁移说明",
+      "expected": "有实际命令验证，无不存在入口或虚构原生 ID 链接",
+      "methods": [
+        "test_production_contracts.ProductionContracts.test_A46_readme_commands_plan_apply_cli"
+      ],
+      "result": "passed",
+      "additional_evidence": []
+    }
+  ],
+  "runtime_digest": "920f5c679a8823422d0fd6f4c3e0eeac2247ff345109f746500ea0a6ca40e43d",
+  "source_digest": "c874ad16af34e3da9751b35308a9c551b071e91ea287d933d7f95da528a4d50c",
+  "environment": {
+    "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "release": {
+    "package": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\releases\\workflow-r3.5-i1.1.0-c874ad16af34.zip",
+    "record": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\releases\\workflow-r3.5-i1.1.0-c874ad16af34.json",
+    "zip_sha256": "6348ded240930b74171de10389ee799507a2a03c2dd0f60ad6a1b793c92ac758",
+    "files_count": 37,
+    "tests_run": 58,
+    "smoke": {
+      "ok": true,
+      "both_outer_renames": true,
+      "new_project": true,
+      "binding": true,
+      "lock": true,
+      "segment_check": true
+    }
+  },
+  "readonly_verification": {
+    "schema": "JM-readonly-verification-v1",
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/workflow_paths.py",
+          "doctor",
+          "--json"
+        ],
+        "exit_code": 0,
+        "ok": true,
+        "lock_status": "not_requested",
+        "tests_run": null
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/workflow_paths.py",
+          "list-resources",
+          "--json"
+        ],
+        "exit_code": 0,
+        "ok": true,
+        "lock_status": "not_requested",
+        "tests_run": null
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/workflow_paths.py",
+          "resolve",
+          "skill.director",
+          "--json"
+        ],
+        "exit_code": 0,
+        "ok": true,
+        "lock_status": "not_requested",
+        "tests_run": null
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "maintenance/maintain.py",
+          "check",
+          "--json"
+        ],
+        "exit_code": 0,
+        "ok": true,
+        "lock_status": "not_requested",
+        "tests_run": 58
+      }
+    ],
+    "source_and_report_file_set_unchanged": true,
+    "all_existing_file_hashes_unchanged": true,
+    "files_checked": 70
+  },
+  "rollback_drill": {
+    "schema": "JM-rollback-drill-v1",
+    "ok": true,
+    "temporary_copy_only": true,
+    "restored_original_files": 27,
+    "new_sources_archived": 10,
+    "old_doctor_exit_code": 0,
+    "later_edit_precondition_refusal": true,
+    "real_workflow_restored": false
+  },
+  "file_changes": {
+    "modified": 10,
+    "added_sources": 10,
+    "unchanged_original": 17
+  },
+  "not_verified": [
+    "Python 3.10 未实机运行",
+    "跨物理磁盘移动未实测",
+    "无平台、生成或成片验收"
+  ],
+  "real_projects_migrated": false,
+  "project_locks_refreshed": false,
+  "online_platform_actions": false,
+  "git_commit_push": false
+}

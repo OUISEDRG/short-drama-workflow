@@ -1,0 +1,171 @@
+{
+  "schema": "JM-r1-r3-changes-v1",
+  "created_at": "2026-09-26T04:28:02.513366+00:00",
+  "baseline": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\baseline.json",
+  "scope": "review R1-R3 local repair",
+  "source_digest": "38ec7bb4965f5ccb61906828c1a5551c6be9d94f9ca8ca3d7b557964abd5b7b7",
+  "changes": [
+    {
+      "path": "README.md",
+      "kind": "modified",
+      "before_sha256": "3dfea1e2eada18cf1571d7caf1df6b4295eadefaad14833f1c6e262d415e27fc",
+      "after_sha256": "358623716b2ce27cee2245aeb79048a4024f7952ef1ca8546ba016ebb41379fc",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\README.md"
+    },
+    {
+      "path": "maintenance/CHANGELOG.md",
+      "kind": "modified",
+      "before_sha256": "d709f28659ddf699eb55f23cb162329249e613fd30f5043f51cef7a7a0069144",
+      "after_sha256": "522ac4fda3692f5a12e1eace27b9c4ce999ac55b4e864f63867ef1c794401090",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\CHANGELOG.md"
+    },
+    {
+      "path": "maintenance/README.md",
+      "kind": "modified",
+      "before_sha256": "d85b6fb6ad6be201932c98794881439a19dc1616d4e194da9f9626c93ca7a975",
+      "after_sha256": "b11473df01f2c7ad953822c2428310ccad494334fd6d595f432acd281726342b",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\README.md"
+    },
+    {
+      "path": "maintenance/maintain.py",
+      "kind": "modified",
+      "before_sha256": "bde14ce705d324819674648ecfb0aae8ed5727dbedc2c8860eb1ff8e52370618",
+      "after_sha256": "ffaf55e46bd0ff8a197994c1b4a3d8c2cce8b137782635ba1b061b743b2cbee0",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\maintain.py"
+    },
+    {
+      "path": "maintenance/tests/fixtures/README.md",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "52016456b9eb77fd4588029f4a734c39e694c69fe97fc51131b1b7bc95a86236",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/AGENTS.project.template.md",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "51fc822c513cf83533d5bb70eb376151838617bc1f4cca6e6b6574948e416a63",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/bundle.manifest.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "172f68dfa5fe50bcfee2904e66b1f4e59e54a64c1b1a4d35bea5328a0694453c",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/workflow.manifest.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "bc9b0d0e4e06dff30447aa23795c068dc86c19fda438b9277524df7a097f7af9",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/工作流版本锁.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "6074b590a93d17bf028dd680255a57a40a73f366bb8f11562047e827d4807390",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/工作流绑定.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "acfc08bac41054722fb710a48ab40ee2634dc761d1b5036c487cdcb8d28defbc",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/infrastructure-1.0/项目参数.template.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "2ba197ae1d36bae90931e607dc48a85ff164bda330c5bea3c5e1f866aba70422",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/legacy-3.5-noschema/AGENTS.project.template.md",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "a4cad3529cd9d1964571e97950685aae674c745a9da7f9793d84a9f5010e3209",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/legacy-3.5-noschema/工作流版本锁.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "f88845fa9c8da62c0e7e4a3694a91101e7f272a44289841670fd7aae101076ee",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/legacy-3.5-noschema/项目参数.template.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "c24f196b7054e43d1886dfc34da37ddb512dc9c2e8be9b127a83fbe874f6f71b",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/fixtures/provenance.json",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "cc2db282d7de11a96127e80a7c02365924fa90b846601e2891dd41fabc15cb59",
+      "backup": null
+    },
+    {
+      "path": "maintenance/tests/support.py",
+      "kind": "modified",
+      "before_sha256": "348fc70f776a45d9d15f5321f11591adf36923ea797fcfb180c55ab4f11c8dc2",
+      "after_sha256": "f6ebf7e0b74c04cd889187cfd8c63da58fb8ee3eea2a55719b4741a759508a9b",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\tests\\support.py"
+    },
+    {
+      "path": "maintenance/tests/test_maintenance.py",
+      "kind": "modified",
+      "before_sha256": "6897cf1f7c0f0128e42ad04351ec3d686f6ea3566ef243faea8523d0a1cab718",
+      "after_sha256": "a0e6802bb4b467e6816b638e5da1cd23d4b9a8059d1c7943d9f41342d76b23ce",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\tests\\test_maintenance.py"
+    },
+    {
+      "path": "maintenance/tests/test_migration.py",
+      "kind": "modified",
+      "before_sha256": "5de8ff11ddd1208d5d1c80e869b0fad4558e471c8f98f14dd476ad2f7da74e11",
+      "after_sha256": "496022255a8a3cad6a9e97f006d8faefb7bfca9c636cee6279908facf6c6509b",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\maintenance\\tests\\test_migration.py"
+    },
+    {
+      "path": "tools/migrate_workflow.py",
+      "kind": "modified",
+      "before_sha256": "06f34750d58b06c6bf38dbf91dc4e16a097361ba6d6a0144486b282603b9721b",
+      "after_sha256": "daba4b13ce4a3ca9d01185b377f5071783e21e77da05064c61a190de60719e94",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\tools\\migrate_workflow.py"
+    },
+    {
+      "path": "workflow.manifest.json",
+      "kind": "modified",
+      "before_sha256": "41c140de2ce9c50318edbf361e6b8161e8f43814de2d370676ad8523d4f8106b",
+      "after_sha256": "126c206b433ab9c8979a148408da6e968aa1b0d585d1335732bd3aa082f2ac53",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\workflow.manifest.json"
+    },
+    {
+      "path": "工作流规则索引.md",
+      "kind": "modified",
+      "before_sha256": "5b3bd14b2748770221b71822c0c1ffe0b265890a80b17f2794db43a1ca4b7ef2",
+      "after_sha256": "b91d7298f9c74e09aa3e061354bb746ec175e200a39423315ae7fed5619ec675",
+      "backup": "D:\\短剧制作\\_通用短剧工作流\\maintenance\\backups\\20260926-121838-r1-r3\\originals\\工作流规则索引.md"
+    }
+  ],
+  "modified_count": 10,
+  "added_source_count": 11,
+  "unchanged_existing_files": 64,
+  "backup_integrity": "37/37",
+  "protection_current_baseline": "passed",
+  "protection_initial_baseline": "passed",
+  "parameter_exclusions": [],
+  "scope_note": "test_maintenance.py adds one fixture allowlist regression needed for frozen release; no business changes",
+  "git_action": "no commit/push/reset/clean",
+  "not_verified": [
+    "real project upgrade",
+    "Python 3.10 runtime",
+    "cross physical disk",
+    "online platform or media acceptance"
+  ]
+}

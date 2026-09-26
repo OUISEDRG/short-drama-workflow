@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath, PureWindowsPath
 import stat
@@ -12,7 +13,7 @@ from typing import Any
 
 WORKFLOW_ID = "jumeng.short-drama.workflow"
 BUNDLE_ID = "jumeng.short-drama.core-skills"
-EXCLUDED = {".git", "__pycache__", ".pytest_cache", "_backups", "tests", "docs"}
+EXCLUDED = {".git", "__pycache__", ".pytest_cache", "_backups", "tests", "docs", "maintenance"}
 SKILLS = {
     "skill.prebreakdown": "screenplay-prebreakdown-analysis",
     "skill.director": "ai-short-drama-director",
@@ -61,17 +62,36 @@ def _pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
+def json_bytes(data: Any) -> bytes:
+    return (json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False) + '\n').encode('utf-8')
+
+
+def parse_json(raw: bytes, *, label: str = 'JSON') -> dict[str, Any]:
+    def reject_constant(value):
+        raise WorkflowError('JSON_NONFINITE', f'非法 JSON 数值：{value}')
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            reject_constant(value)
+        return number
+    try:
+        data = json.loads(raw.decode('utf-8-sig'), object_pairs_hook=_pairs,
+                          parse_constant=reject_constant, parse_float=finite_float)
+    except WorkflowError:
+        raise
+    except (OSError, UnicodeError, ValueError) as exc:
+        raise WorkflowError("MANIFEST_UNREADABLE", f"无法读取 JSON：{label}: {exc}") from exc
+    if not isinstance(data, dict):
+        raise WorkflowError("MANIFEST_INVALID", f"JSON 顶层必须是对象：{label}")
+    return data
+
+
 def read_json(path: Path) -> dict[str, Any]:
     reject_links(path)
     try:
-        data = json.loads(path.read_text(encoding="utf-8-sig"), object_pairs_hook=_pairs)
-    except WorkflowError:
-        raise
-    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise WorkflowError("MANIFEST_UNREADABLE", f"无法读取 JSON：{path}: {exc}") from exc
-    if not isinstance(data, dict):
-        raise WorkflowError("MANIFEST_INVALID", f"JSON 顶层必须是对象：{path}")
-    return data
+        return parse_json(path.read_bytes(), label=str(path))
+    except OSError as exc:
+        raise WorkflowError('MANIFEST_UNREADABLE', f'无法读取 JSON：{path}: {exc}') from exc
 
 
 def _reparse(path: Path) -> bool:
@@ -188,6 +208,8 @@ def load_layout(root: Path) -> WorkflowLayout:
     resources = {}
     for base, data in ((root, root_data), (bundle_root, bundle_data)):
         for rid, spec in data["resources"].items():
+            if isinstance(spec, dict) and isinstance(spec.get('path'), str) and spec['path'].split('/')[0] in EXCLUDED:
+                raise WorkflowError('RESOURCE_PATH_INVALID', f'维护或缓存目录不可登记为运行资源：{rid}')
             if rid in resources:
                 raise WorkflowError("RESOURCE_ID_DUPLICATE", f"根/包资源 ID 重复：{rid}")
             resources[rid] = _resource(base, spec, rid)
@@ -230,6 +252,39 @@ def read_binding(project_dir: Path) -> dict[str, Any]:
     return data
 
 
+def make_binding(project_dir: Path, layout: WorkflowLayout,
+                 *, search_roots: list[Path] | None = None) -> dict[str, Any]:
+    project = Path(os.path.abspath(project_dir))
+    reject_links(project)
+    scopes = search_roots if search_roots is not None else [project.parent, layout.root.parent]
+    roots = []
+    seen = set()
+    for value in scopes:
+        scope = Path(value)
+        if not scope.is_absolute():
+            scope = project / scope
+        scope = _directory(Path(os.path.abspath(scope)))
+        if search_roots is None and (scope == Path(scope.anchor) or scope == Path.home().resolve()
+                                     or str(scope).startswith('\\\\')):
+            raise WorkflowError('SEARCH_SCOPE_REQUIRED', f'特殊父范围需显式 --search-root 授权：{scope}')
+        key = _path_key(scope)
+        if key in seen:
+            continue
+        seen.add(key)
+        try:
+            root = os.path.relpath(scope, project).replace('\\', '/')
+        except ValueError:
+            root = str(scope)
+        roots.append(root)
+    if not roots:
+        raise WorkflowError('BINDING_INVALID', '搜索范围不能为空')
+    if not any(_path_key(layout.root) == k or _path_key(layout.root.parent) == k for k in seen):
+        raise WorkflowError('BINDING_INVALID', '选定公共库不在声明的浅层范围内')
+    return {'schema': 'JM-workflow-binding-v1', 'workflow_id': layout.workflow_id,
+            'bundle_id': layout.bundle_id, 'search_roots': roots, 'max_depth': 1,
+            'path_hint': str(layout.root)}
+
+
 def discover_from_project(project_dir: Path, *, explicit_common: Path | None = None) -> WorkflowLayout:
     project = _directory(Path(project_dir))
     binding = read_binding(project)
@@ -250,11 +305,14 @@ def discover_from_project(project_dir: Path, *, explicit_common: Path | None = N
         hinted = Path(hint)
         if not hinted.is_absolute():
             hinted = project / hinted
-        if hinted.exists():
-            reject_links(hinted)
-            for scope in roots:
-                valid = _path_key(hinted) == _path_key(scope) or (binding["max_depth"] == 1 and _path_key(hinted.parent) == _path_key(scope))
-                if valid:
+        # 先比较词法边界，不对范围外的提示调用 exists/resolve/read。
+        hinted = Path(os.path.abspath(hinted))
+        for scope in roots:
+            valid = os.path.normcase(str(hinted)) == os.path.normcase(str(scope)) or (
+                binding['max_depth'] == 1 and os.path.normcase(str(hinted.parent)) == os.path.normcase(str(scope)))
+            if valid:
+                reject_links(hinted)
+                if hinted.exists():
                     marker = hinted / "workflow.manifest.json"
                     if marker.is_file():
                         data = read_json(marker)

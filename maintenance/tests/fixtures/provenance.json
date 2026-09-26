@@ -1,0 +1,16 @@
+{
+  "legacy-3.5-noschema": {
+    "commit": "4f30aee26776a365d364fde969dc8c6fbf73f447",
+    "writer_sha256": "9c16729bb5bba80a83df81508cdea868266fc5421ff3720cfc17a7f5f1fd93a4",
+    "source_agents_sha256": "a4cad3529cd9d1964571e97950685aae674c745a9da7f9793d84a9f5010e3209",
+    "source_parameters_sha256": "c24f196b7054e43d1886dfc34da37ddb512dc9c2e8be9b127a83fbe874f6f71b",
+    "resource_count": 20
+  },
+  "infrastructure-1.0": {
+    "commit": "6d2ca1b67ea808d12d8254cecbba8c80fd251d01",
+    "writer_sha256": "d30c567b068b1fe2ec6f25e806b1d00a25abaa7056fef270bc39cf239fc9cf29",
+    "source_agents_sha256": "51fc822c513cf83533d5bb70eb376151838617bc1f4cca6e6b6574948e416a63",
+    "source_parameters_sha256": "2ba197ae1d36bae90931e607dc48a85ff164bda330c5bea3c5e1f866aba70422",
+    "resource_count": 26
+  }
+}

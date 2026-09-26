@@ -1,0 +1,221 @@
+{
+  "schema": "JM-independent-migration-probes-v1",
+  "executed_at_utc": "2026-09-26T04:28:03.388757+00:00",
+  "ok": true,
+  "checks_run": 50,
+  "checks_passed": 50,
+  "source_sha256": {
+    "tools/migrate_workflow.py": "daba4b13ce4a3ca9d01185b377f5071783e21e77da05064c61a190de60719e94",
+    "tools/workflow_paths.py": "88de98baff760a6d1c136c6851fe52ce8dc2c91101138152f0808ccbfcccad24",
+    "tools/workflow_lock.py": "94915bc6ffb3c7f2b1772804c6bfcfcb415ab333183c2aa68e19165ce242f4a9",
+    "workflow.manifest.json": "126c206b433ab9c8979a148408da6e968aa1b0d585d1335732bd3aa082f2ac53"
+  },
+  "baseline_migrate_sha256": "06f34750d58b06c6bf38dbf91dc4e16a097361ba6d6a0144486b282603b9721b",
+  "history_commits": [
+    "4f30aee",
+    "6d2ca1b"
+  ],
+  "results": [
+    {
+      "name": "custom_absolute_skill",
+      "passed": true
+    },
+    {
+      "name": "custom_absolute_skill_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "custom_absolute_compiler",
+      "passed": true
+    },
+    {
+      "name": "custom_absolute_compiler_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "custom_relative_skill",
+      "passed": true
+    },
+    {
+      "name": "custom_relative_skill_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "custom_same_filename_section",
+      "passed": true
+    },
+    {
+      "name": "custom_same_filename_section_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "known_string_wrong_section",
+      "passed": true
+    },
+    {
+      "name": "known_string_wrong_section_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "fragment_wrong_separate_right",
+      "passed": true
+    },
+    {
+      "name": "fragment_wrong_separate_right_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "fragment_right_separate_wrong",
+      "passed": true
+    },
+    {
+      "name": "fragment_right_separate_wrong_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "multiple_fragments",
+      "passed": true
+    },
+    {
+      "name": "multiple_fragments_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "content_section_omitted",
+      "passed": true
+    },
+    {
+      "name": "content_section_omitted_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "valid_split_section_False",
+      "passed": true
+    },
+    {
+      "name": "valid_split_section_True",
+      "passed": true
+    },
+    {
+      "name": "runtime_v1_0_constant_matches_git",
+      "passed": true
+    },
+    {
+      "name": "agents_outside_bytes_False_LF",
+      "passed": true
+    },
+    {
+      "name": "agents_outside_bytes_False_CRLF",
+      "passed": true
+    },
+    {
+      "name": "agents_outside_bytes_True_LF",
+      "passed": true
+    },
+    {
+      "name": "agents_outside_bytes_True_CRLF",
+      "passed": true
+    },
+    {
+      "name": "agents_internal_modification",
+      "passed": true
+    },
+    {
+      "name": "agents_duplicate_legacy",
+      "passed": true
+    },
+    {
+      "name": "agents_outside_conflict",
+      "passed": true
+    },
+    {
+      "name": "agents_mixed_legacy_new",
+      "passed": true
+    },
+    {
+      "name": "legacy_custom_prefix",
+      "passed": true
+    },
+    {
+      "name": "legacy_absolute",
+      "passed": true
+    },
+    {
+      "name": "legacy_deep_prefix",
+      "passed": true
+    },
+    {
+      "name": "legacy_traversal",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_version",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_relative_root",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_empty_files",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_nonhex_hash",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_null_schema",
+      "passed": true
+    },
+    {
+      "name": "schema_less_invalid_extra_top_field",
+      "passed": true
+    },
+    {
+      "name": "real_writer_no_schema_and_twenty_resources",
+      "passed": true
+    },
+    {
+      "name": "real_history_plan_readonly",
+      "passed": true
+    },
+    {
+      "name": "real_history_accepted_twenty",
+      "passed": true
+    },
+    {
+      "name": "schema_less_plan_blocks_custom_bundle_prefix",
+      "passed": true
+    },
+    {
+      "name": "schema_less_plan_blocks_missing_resource",
+      "passed": true
+    },
+    {
+      "name": "schema_less_plan_blocks_extra_resource",
+      "passed": true
+    },
+    {
+      "name": "schema_less_plan_blocks_fake_minimal",
+      "passed": true
+    },
+    {
+      "name": "real_history_backup_lock_exact",
+      "passed": true
+    },
+    {
+      "name": "real_history_new_lock_verified",
+      "passed": true
+    },
+    {
+      "name": "real_history_reaches_noop",
+      "passed": true
+    },
+    {
+      "name": "source_bytes_unchanged_during_probes",
+      "passed": true
+    }
+  ],
+  "scope": "Pure functions plus TemporaryDirectory history writer and migration; no real project migration, no online operation, no Git commit or push."
+}

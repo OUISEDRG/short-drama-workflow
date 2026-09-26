@@ -1,0 +1,45 @@
+{
+  "schema": "JM-r1-r3-reproduction-v1",
+  "time_utc": "2026-09-26T04:21:32.011963+00:00",
+  "tool_sha256": "06f34750d58b06c6bf38dbf91dc4e16a097361ba6d6a0144486b282603b9721b",
+  "before_runtime_fix": true,
+  "tests_run": 4,
+  "failures": [
+    {
+      "test": "test_custom_absolute_path_with_standard_suffix_is_blocked (test_migration.MigrationTests.test_custom_absolute_path_with_standard_suffix_is_blocked)",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 13, in test_custom_absolute_path_with_standard_suffix_is_blocked\n    self.assertCode('PARAMETERS_MERGE_REVIEW_REQUIRED', m.merge_parameters,\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        raw, self.layout.resources['template.project_parameters'].read_bytes(), common_root=self.common)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\support.py\", line 114, in assertCode\n    with self.assertRaises(WorkflowError) as caught:\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: WorkflowError not raised\n"
+    },
+    {
+      "test": "test_custom_string_section_is_not_normalized_away (test_migration.MigrationTests.test_custom_string_section_is_not_normalized_away)",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 20, in test_custom_string_section_is_not_normalized_away\n    self.assertCode('PARAMETERS_MERGE_REVIEW_REQUIRED', m.merge_parameters,\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        encoded(original), self.layout.resources['template.project_parameters'].read_bytes(), common_root=self.common)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\support.py\", line 114, in assertCode\n    with self.assertRaises(WorkflowError) as caught:\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: WorkflowError not raised\n"
+    },
+    {
+      "test": "test_real_legacy_lock_without_schema_can_be_planned (test_migration.MigrationTests.test_real_legacy_lock_without_schema_can_be_planned)",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 30, in test_real_legacy_lock_without_schema_can_be_planned\n    self.assertFalse(spec['blockers'], spec['blockers'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['LOCK_SCHEMA_UNKNOWN'] is not false : ['LOCK_SCHEMA_UNKNOWN']\n"
+    }
+  ],
+  "errors": [
+    {
+      "test": "test_v1_0_default_agents_can_upgrade (test_migration.MigrationTests.test_v1_0_default_agents_can_upgrade)",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 35, in test_v1_0_default_agents_can_upgrade\n    result = m.merge_agents(original, self.layout.resources['template.project_agents'].read_bytes())\n  File \"D:\\短剧制作\\_通用短剧工作流\\tools\\migrate_workflow.py\", line 99, in merge_agents\n    raise WorkflowError('AGENTS_MERGE_REVIEW_REQUIRED', '无法唯一识别旧定位指令')\ntools.workflow_paths.WorkflowError: 无法唯一识别旧定位指令\n"
+    }
+  ],
+  "skipped": [],
+  "output": "test_custom_absolute_path_with_standard_suffix_is_blocked (test_migration.MigrationTests.test_custom_absolute_path_with_standard_suffix_is_blocked) ... FAIL\ntest_custom_string_section_is_not_normalized_away (test_migration.MigrationTests.test_custom_string_section_is_not_normalized_away) ... FAIL\ntest_real_legacy_lock_without_schema_can_be_planned (test_migration.MigrationTests.test_real_legacy_lock_without_schema_can_be_planned) ... FAIL\ntest_v1_0_default_agents_can_upgrade (test_migration.MigrationTests.test_v1_0_default_agents_can_upgrade) ... ERROR\n\n======================================================================\nERROR: test_v1_0_default_agents_can_upgrade (test_migration.MigrationTests.test_v1_0_default_agents_can_upgrade)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 35, in test_v1_0_default_agents_can_upgrade\n    result = m.merge_agents(original, self.layout.resources['template.project_agents'].read_bytes())\n  File \"D:\\短剧制作\\_通用短剧工作流\\tools\\migrate_workflow.py\", line 99, in merge_agents\n    raise WorkflowError('AGENTS_MERGE_REVIEW_REQUIRED', '无法唯一识别旧定位指令')\ntools.workflow_paths.WorkflowError: 无法唯一识别旧定位指令\n\n======================================================================\nFAIL: test_custom_absolute_path_with_standard_suffix_is_blocked (test_migration.MigrationTests.test_custom_absolute_path_with_standard_suffix_is_blocked)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 13, in test_custom_absolute_path_with_standard_suffix_is_blocked\n    self.assertCode('PARAMETERS_MERGE_REVIEW_REQUIRED', m.merge_parameters,\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        raw, self.layout.resources['template.project_parameters'].read_bytes(), common_root=self.common)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\support.py\", line 114, in assertCode\n    with self.assertRaises(WorkflowError) as caught:\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: WorkflowError not raised\n\n======================================================================\nFAIL: test_custom_string_section_is_not_normalized_away (test_migration.MigrationTests.test_custom_string_section_is_not_normalized_away)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 20, in test_custom_string_section_is_not_normalized_away\n    self.assertCode('PARAMETERS_MERGE_REVIEW_REQUIRED', m.merge_parameters,\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        encoded(original), self.layout.resources['template.project_parameters'].read_bytes(), common_root=self.common)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\support.py\", line 114, in assertCode\n    with self.assertRaises(WorkflowError) as caught:\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: WorkflowError not raised\n\n======================================================================\nFAIL: test_real_legacy_lock_without_schema_can_be_planned (test_migration.MigrationTests.test_real_legacy_lock_without_schema_can_be_planned)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\短剧制作\\_通用短剧工作流\\maintenance\\tests\\test_migration.py\", line 30, in test_real_legacy_lock_without_schema_can_be_planned\n    self.assertFalse(spec['blockers'], spec['blockers'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['LOCK_SCHEMA_UNKNOWN'] is not false : ['LOCK_SCHEMA_UNKNOWN']\n\n----------------------------------------------------------------------\nRan 4 tests in 0.289s\n\nFAILED (failures=3, errors=1)\n",
+  "fixtures": {
+    "legacy-3.5-noschema": {
+      "commit": "4f30aee26776a365d364fde969dc8c6fbf73f447",
+      "writer_sha256": "9c16729bb5bba80a83df81508cdea868266fc5421ff3720cfc17a7f5f1fd93a4",
+      "source_agents_sha256": "a4cad3529cd9d1964571e97950685aae674c745a9da7f9793d84a9f5010e3209",
+      "source_parameters_sha256": "c24f196b7054e43d1886dfc34da37ddb512dc9c2e8be9b127a83fbe874f6f71b",
+      "resource_count": 20
+    },
+    "infrastructure-1.0": {
+      "commit": "6d2ca1b67ea808d12d8254cecbba8c80fd251d01",
+      "writer_sha256": "d30c567b068b1fe2ec6f25e806b1d00a25abaa7056fef270bc39cf239fc9cf29",
+      "source_agents_sha256": "51fc822c513cf83533d5bb70eb376151838617bc1f4cca6e6b6574948e416a63",
+      "source_parameters_sha256": "2ba197ae1d36bae90931e607dc48a85ff164bda330c5bea3c5e1f866aba70422",
+      "resource_count": 26
+    }
+  }
+}
