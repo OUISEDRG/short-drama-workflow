@@ -1,6 +1,6 @@
 {
   "schema": "JM-v3.5",
-  "workflow_version": "3.5",
+  "workflow_version": "3.5.1",
   "project": {
     "name": null,
     "root": null,
@@ -57,7 +57,7 @@
       "current_user_requirement",
       "confirmed_srt"
     ],
-    "max_shot_seconds": 5,
+    "max_shot_seconds": 3,
     "minimum_shot_seconds_exclusive": 0,
     "real_cut_required": true,
     "long_dialogue_policy": "one_speech_event_across_real_cuts",

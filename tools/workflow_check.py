@@ -7,6 +7,8 @@ from pathlib import Path
 import re
 from typing import Any
 
+MAX_SHOT_SECONDS = Decimal('3')
+
 
 def validate_manifest(m: dict[str, Any]) -> list[dict[str, str]]:
     issues: list[dict[str, str]] = []
@@ -83,7 +85,7 @@ def validate_manifest(m: dict[str, Any]) -> list[dict[str, str]]:
         if type(s.get('number')) is not int or s['number']!=i+1: issue('SHOT_NUMBER_INVALID',at+'.number','镜号须从1连续递增。')
         a,b=interval(s,at)
         if a is not None and b is not None:
-            if b-a>Decimal('5'): issue('SHOT_TOO_LONG',at,'一个连续镜头不得超过5秒。')
+            if b-a>MAX_SHOT_SECONDS: issue('SHOT_TOO_LONG',at,'一个连续镜头不得超过3秒。')
             if a!=previous: issue('TIMELINE_GAP_OR_OVERLAP',at,'视觉时间轴不连续或重叠。')
             previous=b
         transition=s.get('transition_in')
@@ -274,13 +276,13 @@ def validate_prompt_against_manifest(m: dict[str,Any], text: str) -> list[dict[s
         if s['number'] in numbers or s['number']!=i+1: add('PROMPT_SHOT_NUMBER_INVALID',at)
         numbers.add(s['number'])
         if s['end']<=s['start']: add('PROMPT_SHOT_INTERVAL_INVALID',at)
-        if s['end']-s['start']>5: add('PROMPT_SHOT_TOO_LONG',at)
+        if s['end']-s['start']>MAX_SHOT_SECONDS: add('PROMPT_SHOT_TOO_LONG',at,'一个连续镜头不得超过3秒。')
         if s['start']!=previous: add('PROMPT_TIMELINE_GAP_OR_OVERLAP',at)
         previous=s['end']
         if i<len(ms) and isinstance(ms[i],dict) and (s['number']!=ms[i].get('number') or s['start']!=number_or_none(ms[i].get('start')) or s['end']!=number_or_none(ms[i].get('end'))): add('PROMPT_SHOT_MISMATCH',at)
         body=' '.join(s['body'])
         if i>0 and not re.search('硬切|匹配剪接|叠化|切至|切换',body): add('PROMPT_CUT_UNCERTAIN',at,'未见明确切换。')
-        if i>0 and isinstance(ms[i],dict) and ms[i].get('transition_in')=='hard_cut' and '硬切' not in body: add('PROMPT_CUT_MISMATCH',at)
+        if i>0 and i<len(ms) and isinstance(ms[i],dict) and ms[i].get('transition_in')=='hard_cut' and '硬切' not in body: add('PROMPT_CUT_MISMATCH',at)
     if parsed.get('duration') is not None and previous!=parsed['duration']: add('PROMPT_TIMELINE_END_MISMATCH','prompt.shots')
     assets={(x['type'],x['referent'],x['full_name']) for x in parsed['assets']}
     expected={(x['type'],x['referent'],x['full_name']) for x in m.get('asset_bindings',[]) if isinstance(x,dict) and all(isinstance(x.get(k),str) for k in ('type','referent','full_name'))} if isinstance(m.get('asset_bindings'),list) else set()

@@ -31,7 +31,8 @@ def copy_workflow(target, source=ROOT):
         dest = target / path.relative_to(source)
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(path.read_bytes())
-    for name in ('README.md', 'CHANGELOG.md', 'maintain.py'):
+    for name in ('README.md', 'CHANGELOG.md', 'maintain.py', 'portable.py',
+                 'AGENTS.global.template.md', '安装工作流.ps1', '搬迁与安装.md'):
         path = source / 'maintenance' / name
         if path.is_file():
             dest = target / 'maintenance' / name
@@ -68,7 +69,8 @@ def valid_segment():
             'source_review': dict.fromkeys(('dialogue', 'narration', 'visible_text'), 'confirmed'),
             'has_independent_voice_reference': False, 'character_attached_audio_preserved': True,
             'screen_text_mode': 'direct_generation', 'shots': [{'id': 's1', 'number': 1, 'start': 0,
-            'end': 4, 'transition_in': 'start'}], 'source_dialogue': {}, 'source_dialogue_meta': {},
+            'end': 2, 'transition_in': 'start'}, {'id': 's2', 'number': 2, 'start': 2,
+            'end': 4, 'transition_in': 'hard_cut'}], 'source_dialogue': {}, 'source_dialogue_meta': {},
             'dialogue_events': [], 'source_narration': {}, 'narration_coverage': [],
             'visible_text': [], 'asset_bindings': []}
 

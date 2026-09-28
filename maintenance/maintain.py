@@ -23,8 +23,9 @@ from tools.workflow_lock import make_lock
 from tools.init_project import template_content
 
 TEST_FILES = ('support.py', 'test_paths.py', 'test_lock.py', 'test_init.py',
-              'test_migration.py', 'test_maintenance.py', 'test_production_contracts.py')
-MAINTENANCE_FILES = ('README.md', 'CHANGELOG.md', 'maintain.py')
+              'test_migration.py', 'test_maintenance.py', 'test_production_contracts.py', 'test_portable.py')
+MAINTENANCE_FILES = ('README.md', 'CHANGELOG.md', 'maintain.py', 'portable.py',
+                     'AGENTS.global.template.md', '安装工作流.ps1', '搬迁与安装.md')
 FIXTURE_FILES = (
     'README.md', 'provenance.json',
     'legacy-3.5-noschema/AGENTS.project.template.md',
