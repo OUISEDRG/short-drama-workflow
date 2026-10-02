@@ -23,11 +23,14 @@ from tools.workflow_lock import make_lock
 from tools.init_project import template_content
 
 TEST_FILES = ('support.py', 'test_paths.py', 'test_lock.py', 'test_init.py',
-              'test_migration.py', 'test_maintenance.py', 'test_production_contracts.py', 'test_portable.py')
+              'test_migration.py', 'test_maintenance.py', 'test_production_contracts.py', 'test_portable.py', 'test_g02_quality.py', 'test_shot_language.py')
 MAINTENANCE_FILES = ('README.md', 'CHANGELOG.md', 'maintain.py', 'portable.py',
                      'AGENTS.global.template.md', '安装工作流.ps1', '搬迁与安装.md')
 FIXTURE_FILES = (
     'README.md', 'provenance.json',
+    'shot-language/inputs.md', 'shot-language/episode.json',
+    'shot-language/episode.md', 'shot-language/semantic_review.md',
+    'g02-quality-golden/README.md', 'g02-quality-golden/EP14.source.md',
     'legacy-3.5-noschema/AGENTS.project.template.md',
     'legacy-3.5-noschema/项目参数.template.json',
     'legacy-3.5-noschema/工作流版本锁.json',
@@ -227,7 +230,7 @@ sys.path.insert(0,sys.argv[1]); from tools.workflow_paths import load_layout,dis
 from tools.workflow_lock import read_lock,verify_lock
 from tools.init_project import initialize
 from maintenance.tests.support import valid_segment
-from tools.workflow_check import validate_manifest
+from tools.workflow_check import validate_manifest,validate_delivery,CURRENT_PROFILE
 root=Path(sys.argv[1]); layout=load_layout(root)
 renamed_bundle=layout.bundle_root.with_name('已改名技能包'); layout.bundle_root.rename(renamed_bundle)
 renamed_root=root.with_name('已改名公共发布'); root.rename(renamed_root)
@@ -236,7 +239,17 @@ with tempfile.TemporaryDirectory(prefix='jm-release-project-') as t:
     layout=discover_from_project(project)
     assert verify_lock(layout,read_lock(project/'工作流版本锁.json'))['ok']
     assert not validate_manifest(valid_segment())
-print(json.dumps({'ok':True,'both_outer_renames':True,'new_project':True,'binding':True,'lock':True,'segment_check':True}))
+    params=json.loads((project/'项目参数.json').read_text(encoding='utf-8-sig'))
+    assert params['prompt']['quality_profile']==CURRENT_PROFILE
+    assert params['prompt']['require_camera_execution'] is True
+    assert {'reference.shot_language','tool.shot_language_check'}<=set(layout.resources)
+    fixture=renamed_root/'maintenance/tests/fixtures/shot-language'
+    data=json.loads((fixture/'episode.json').read_text(encoding='utf-8'))
+    prompt=(fixture/'episode.md').read_text(encoding='utf-8')
+    a,b,reports,warnings=validate_delivery(data,prompt,required_profile=CURRENT_PROFILE)
+    assert not a+b,(a,b)
+    assert len(reports)==2 and all(x['detail_cjk_after_asset_strip']>=2501 for x in reports)
+print(json.dumps({'ok':True,'both_outer_renames':True,'new_project':True,'binding':True,'lock':True,'segment_check':True,'current_profile':True,'complete_episode':True,'new_resources_locked':True}))
 '''
     proc = subprocess.run([sys.executable, '-B', '-c', code, str(root)], env=env,
                           capture_output=True, encoding='utf-8')

@@ -3,18 +3,61 @@
   "workflow_id": "jumeng.short-drama.workflow",
   "bundle_id": "jumeng.short-drama.core-skills",
   "resources": {
-    "meta.bundle": {"path": "bundle.manifest.json", "required": true},
-    "doc.bundle_readme": {"path": "README.md", "required": true},
-    "skill.prebreakdown": {"path": "screenplay-prebreakdown-analysis/SKILL.md", "required": true},
-    "skill.director": {"path": "ai-short-drama-director/SKILL.md", "required": true},
-    "skill.acting": {"path": "cinematic-acting-execution-library/SKILL.md", "required": true},
-    "skill.compiler": {"path": "sd25-video-prompt-compiler/SKILL.md", "required": true},
-    "skill.adapter": {"path": "dreamina-sd25-prompt-adapter/SKILL.md", "required": true},
-    "skill.production": {"path": "dreamina-short-drama-production/SKILL.md", "required": true},
-    "reference.director": {"path": "ai-short-drama-director/references/AI短剧导演核心规范_v3.4.md", "required": true},
-    "reference.compiler": {"path": "sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md", "required": true},
-    "reference.production": {"path": "dreamina-short-drama-production/references/剧梦短剧制作总控_v3.4.md", "required": true},
-    "template.project_parameters": {"path": "dreamina-short-drama-production/assets/项目参数.template.json", "required": true},
-    "template.segment_check": {"path": "dreamina-short-drama-production/assets/本段执行清单.template.json", "required": true}
+    "meta.bundle": {
+      "path": "bundle.manifest.json",
+      "required": true
+    },
+    "doc.bundle_readme": {
+      "path": "README.md",
+      "required": true
+    },
+    "skill.prebreakdown": {
+      "path": "screenplay-prebreakdown-analysis/SKILL.md",
+      "required": true
+    },
+    "skill.director": {
+      "path": "ai-short-drama-director/SKILL.md",
+      "required": true
+    },
+    "skill.acting": {
+      "path": "cinematic-acting-execution-library/SKILL.md",
+      "required": true
+    },
+    "skill.compiler": {
+      "path": "sd25-video-prompt-compiler/SKILL.md",
+      "required": true
+    },
+    "skill.adapter": {
+      "path": "dreamina-sd25-prompt-adapter/SKILL.md",
+      "required": true
+    },
+    "skill.production": {
+      "path": "dreamina-short-drama-production/SKILL.md",
+      "required": true
+    },
+    "reference.director": {
+      "path": "ai-short-drama-director/references/AI短剧导演核心规范_v3.4.md",
+      "required": true
+    },
+    "reference.compiler": {
+      "path": "sd25-video-prompt-compiler/references/视频模型工作流配置_SD2.5_v3.4.md",
+      "required": true
+    },
+    "reference.production": {
+      "path": "dreamina-short-drama-production/references/剧梦短剧制作总控_v3.4.md",
+      "required": true
+    },
+    "template.project_parameters": {
+      "path": "dreamina-short-drama-production/assets/项目参数.template.json",
+      "required": true
+    },
+    "template.segment_check": {
+      "path": "dreamina-short-drama-production/assets/本段执行清单.template.json",
+      "required": true
+    },
+    "reference.shot_language": {
+      "path": "ai-short-drama-director/references/镜头语言选择与执行规则.md",
+      "required": true
+    }
   }
 }

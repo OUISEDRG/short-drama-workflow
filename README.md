@@ -6,7 +6,11 @@
 
 已有剧必须连同自己的绑定、内容锁、剧本、素材和台账迁移，并执行只读项目检查；安装入口不会自动升级旧项目。路径诊断不代替平台登录、真实资产芯片和人物音频现场验收。2026-09-28 搬迁扩展保持规则 3.5.1 与定位合同 1.1.1，发布包以时间及内容哈希区分；本次 Skill/README 字节有更新，旧项目仍须显式审查锁差异。
 
-本仓库维护可复用的 AI 短剧制作工作流（创作规则 **v3.5.1**、定位基础设施 **1.1.1**）：六个 Skill、项目模板、最终视频提示词排版规范，以及离线工具。公共文件只定义流程和字段含义；剧本、角色、主语言、真实素材名和制作进度由各短剧项目自己保存。
+本仓库维护可复用的 AI 短剧制作工作流（创作规则 **v3.7.0**、定位基础设施 **1.1.1**）：六个 Skill、项目模板、最终视频提示词排版规范，以及离线工具。公共文件只定义流程和字段含义；剧本、角色、主语言、真实素材名和制作进度由各短剧项目自己保存。
+
+2026-10-01 G02升级：新项目默认20–30秒独立分镜、每实际镜头≤3秒、去完整资产名后每分镜≥2501汉字；B区生成控制实体全程完整绑定名，保护对白/画面文字原文。观看任务、视觉递进、末态和导演镜头账本成为必交合同，完整规则集中在[输出规范](视频提示词输出规范_资产全名版.md)。旧项目不自动修改参数、绑定或内容锁；迁移前审查资源差异与业务默认值，普通迁移仍保留旧业务值，需要明确配置新profile及记录用户覆盖。
+
+整集校验使用 `JM-episode-check-v1`，含time_source整集绝对范围与segments数组（每段v2清单，逐段来源range_start/range_end连续覆盖整集，source_ref一致）。命令：`python -B tools/workflow_check.py 本集执行清单.json --prompt 本集.md --require-profile g02_cinematic_fullname_v2`。JSON输出quality_contract及warnings；v2无正文不能标记完成，v1仅保留单段历史诊断。静态PASS不证明导演语义、平台真实绑定或成片效果。
 
 ## 日常从这里开始
 
@@ -62,7 +66,7 @@ python -B tools/init_project.py --root '<新项目创建父目录>' --project-na
 先用 `python -B tools/workflow_paths.py resolve template.segment_check --json` 找到清单模板，根据当前项目来源填写。模板中的 `unknown` 和 `null` 表示尚未核对。
 
 ```powershell
-python -B tools/workflow_check.py '<已填写的本段执行清单.json>' --prompt '<本段最终提示词.md>'
+python -B tools/workflow_check.py '<已填写的本段执行清单.json>' --prompt '<本段最终提示词.md>' --require-profile g02_cinematic_fullname_v2
 ```
 
 [检查器](tools/workflow_check.py)仍可独立运行，只传清单时仅检查清单。静态检查不能证明实际视频切镜、音轨、文字拼写或平台真实引用绑定；成片须按实际结果验收。工作流本身不授权上传、生成或消耗积分。
@@ -77,3 +81,11 @@ python -B maintenance/maintain.py release --output-dir maintenance/releases --js
 check 默认只输出；显式 `--report` 才写入维护 reports，零测试和必需跳过均失败。发布在临时冻结副本重新跑全测试、核对 ZIP 字节并解包冒烟，外置记录保存实际摘要。两个可变外层名称以外，固定入口和内部资源布局仍属于接口合同。
 
 内容锁发现变化，但不会保留被覆盖的旧规则。长期制作应在明确获准位置展开某一发布包，按独立版本容器绑定项目；范围只覆盖选择的版本，不自动跟随 latest。本维护库更新会使仍绑定它的旧项目产生可见锁差异，需具体项目单独批准升级。本次不迁移真实项目，不刷新它们的锁，也不自动 Git commit/push。回退和故障处理见维护手册。
+
+## 3.7 镜头语言升级
+
+默认正式profile为g02_cinematic_fullname_v2，输出规范v1.4。整集设计摄影策略、每镜主动决定摄影机、每个相邻切点写双端承接，最终融入唯一B稿。六个Skill保持；新增资源reference.shot_language和tool.shot_language_check，无教程运行依赖。详见[专题规则](Codex适配剧梦/ai-short-drama-director/references/镜头语言选择与执行规则.md)。
+
+完整离线样例：[固定合成输入](maintenance/tests/fixtures/shot-language/inputs.md)、[唯一完整Prompt](maintenance/tests/fixtures/shot-language/episode.md)、[内部清单](maintenance/tests/fixtures/shot-language/episode.json)、[逐镜语义审查](maintenance/tests/fixtures/shot-language/semantic_review.md)。运行 `python -B tools/workflow_check.py maintenance/tests/fixtures/shot-language/episode.json --prompt maintenance/tests/fixtures/shot-language/episode.md --require-profile g02_cinematic_fullname_v2`。样例只证明离线合同应用，不是生产资产或平台样片。
+
+当前整集必须显式要求profile，并核对current_contract_passed与sequence_scope；历史诊断PASS和单段PASS均不能宣称本集完成。公共版本升级后，已有项目的锁会检测到规则差异，需要用户指定该项目后审查迁移，不能自动刷新。基础设施1.1.1、工作流身份和初始化/迁移算法保持。

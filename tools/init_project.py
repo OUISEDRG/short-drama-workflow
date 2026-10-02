@@ -59,7 +59,7 @@ def template_content(layout) -> dict[str, bytes]:
         raise WorkflowError('TEMPLATE_INVALID', '台账 segment_fields 必须为字符串数组')
     # 同样预检单段 JSON 和文本编码，不把坏模板留到项目创建后。
     segment = parse_json(resource_path(layout, 'template.segment_check').read_bytes())
-    if segment.get('schema') != 'JM-segment-check-v1':
+    if segment.get('schema') not in {'JM-segment-check-v1','JM-segment-check-v2'}:
         raise WorkflowError('TEMPLATE_INVALID', '单段清单模板 schema 无效')
     for raw in content.values():
         raw.decode('utf-8-sig')

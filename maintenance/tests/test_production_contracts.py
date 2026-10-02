@@ -268,9 +268,9 @@ class ProductionContracts(Sandbox):
         project = self.project()
         data = json.loads((project / '项目参数.json').read_bytes())
         self.assertEqual(data['timing']['max_shot_seconds'], 3)
-        self.assertEqual(data['workflow_version'], '3.5.1')
+        self.assertEqual(data['workflow_version'], json.loads((self.common/'workflow.manifest.json').read_bytes())['rule_version'])
         self.assertEqual(data['schema'], 'JM-v3.5')
-        self.assertEqual(self.layout.rule_version, '3.5.1')
+        self.assertEqual(self.layout.rule_version, data['workflow_version'])
         self.assertEqual(self.layout.infrastructure_version, '1.1.1')
         self.assertTrue(verify_lock(discover_from_project(project), read_lock(project / '工作流版本锁.json'))['ok'])
 

@@ -1,22 +1,68 @@
 {
   "schema": "JM-workflow-manifest-v1",
   "workflow_id": "jumeng.short-drama.workflow",
-  "rule_version": "3.5.1",
+  "rule_version": "3.7.0",
   "infrastructure_version": "1.1.1",
-  "bundle": {"bundle_id": "jumeng.short-drama.core-skills", "discovery": "direct_children"},
+  "bundle": {
+    "bundle_id": "jumeng.short-drama.core-skills",
+    "discovery": "direct_children"
+  },
   "resources": {
-    "meta.workflow": {"path": "workflow.manifest.json", "required": true},
-    "doc.readme": {"path": "README.md", "required": true},
-    "entry.maintenance": {"path": "AGENTS.md", "required": true},
-    "entry.rules": {"path": "工作流规则索引.md", "required": true},
-    "template.project_agents": {"path": "AGENTS.project.template.md", "required": true},
-    "template.project_start": {"path": "项目启动说明.template.md", "required": true},
-    "template.ledger": {"path": "制作台账.template.json", "required": true},
-    "layout.final_prompt": {"path": "视频提示词输出规范_资产全名版.md", "required": true},
-    "tool.init_project": {"path": "tools/init_project.py", "required": true},
-    "tool.workflow_check": {"path": "tools/workflow_check.py", "required": true},
-    "tool.paths": {"path": "tools/workflow_paths.py", "required": true},
-    "tool.lock": {"path": "tools/workflow_lock.py", "required": true},
-    "tool.migrate": {"path": "tools/migrate_workflow.py", "required": true}
+    "meta.workflow": {
+      "path": "workflow.manifest.json",
+      "required": true
+    },
+    "doc.readme": {
+      "path": "README.md",
+      "required": true
+    },
+    "entry.maintenance": {
+      "path": "AGENTS.md",
+      "required": true
+    },
+    "entry.rules": {
+      "path": "工作流规则索引.md",
+      "required": true
+    },
+    "template.project_agents": {
+      "path": "AGENTS.project.template.md",
+      "required": true
+    },
+    "template.project_start": {
+      "path": "项目启动说明.template.md",
+      "required": true
+    },
+    "template.ledger": {
+      "path": "制作台账.template.json",
+      "required": true
+    },
+    "layout.final_prompt": {
+      "path": "视频提示词输出规范_资产全名版.md",
+      "required": true
+    },
+    "tool.init_project": {
+      "path": "tools/init_project.py",
+      "required": true
+    },
+    "tool.workflow_check": {
+      "path": "tools/workflow_check.py",
+      "required": true
+    },
+    "tool.paths": {
+      "path": "tools/workflow_paths.py",
+      "required": true
+    },
+    "tool.lock": {
+      "path": "tools/workflow_lock.py",
+      "required": true
+    },
+    "tool.migrate": {
+      "path": "tools/migrate_workflow.py",
+      "required": true
+    },
+    "tool.shot_language_check": {
+      "path": "tools/shot_language_check.py",
+      "required": true
+    }
   }
 }

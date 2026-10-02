@@ -57,3 +57,7 @@
 事实预拆解 → 导演判断 → 表演语言细化（按需）→ SD2.5 编译 → 剧梦真实素材映射 → 单独引用 → 一键引用 → 页面实际状态验证 → 生成门禁 → 已授权提交 → Take 验收 → 接受后更新 Sequence Canon。
 
 “本地 Prompt 已完成”“引用动作执行过”“生成已提交”和“成片已接受”是不同状态，必须分别记录。
+
+## v3.7 联合镜头语言合同
+
+六个Skill分工保持。导演读取reference.shot_language形成整集camera_strategy、逐镜camera与N−1 connections；表演保证动作/摄影分离和刺激后反应；Compiler融入唯一B稿；适配与总控要求当前完整合同和语义审查后再做授权平台准备。资源路径通过定位器解析，不依赖教程原片。最终质量以layout.final_prompt v1.4为准，当前profile为g02_cinematic_fullname_v2。

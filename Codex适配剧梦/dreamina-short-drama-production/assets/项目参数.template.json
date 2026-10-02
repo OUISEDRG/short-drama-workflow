@@ -1,6 +1,6 @@
 {
   "schema": "JM-v3.5",
-  "workflow_version": "3.5.1",
+  "workflow_version": "3.7.0",
   "project": {
     "name": null,
     "root": null,
@@ -15,16 +15,36 @@
   ],
   "authorities": {
     "skills": {
-      "screenplay-prebreakdown-analysis": {"resource_id": "skill.prebreakdown"},
-      "ai-short-drama-director": {"resource_id": "skill.director"},
-      "cinematic-acting-execution-library": {"resource_id": "skill.acting"},
-      "sd25-video-prompt-compiler": {"resource_id": "skill.compiler"},
-      "dreamina-sd25-prompt-adapter": {"resource_id": "skill.adapter"},
-      "dreamina-short-drama-production": {"resource_id": "skill.production"}
+      "screenplay-prebreakdown-analysis": {
+        "resource_id": "skill.prebreakdown"
+      },
+      "ai-short-drama-director": {
+        "resource_id": "skill.director"
+      },
+      "cinematic-acting-execution-library": {
+        "resource_id": "skill.acting"
+      },
+      "sd25-video-prompt-compiler": {
+        "resource_id": "skill.compiler"
+      },
+      "dreamina-sd25-prompt-adapter": {
+        "resource_id": "skill.adapter"
+      },
+      "dreamina-short-drama-production": {
+        "resource_id": "skill.production"
+      }
     },
-    "content": {"resource_id": "reference.compiler", "section": "7.3"},
-    "platform_content": {"resource_id": "skill.adapter"},
-    "layout": {"resource_id": "layout.final_prompt", "section": "24"}
+    "content": {
+      "resource_id": "reference.compiler",
+      "section": "7.3"
+    },
+    "platform_content": {
+      "resource_id": "skill.adapter"
+    },
+    "layout": {
+      "resource_id": "layout.final_prompt",
+      "section": "24"
+    }
   },
   "script": {
     "fact_source": null,
@@ -53,6 +73,8 @@
   "timing": {
     "episode_default_seconds": null,
     "segment_default_seconds": null,
+    "g02_segment_default_min_seconds": 20,
+    "g02_segment_default_max_seconds": 30,
     "source_priority": [
       "current_user_requirement",
       "confirmed_srt"
@@ -100,8 +122,22 @@
     "content_contract": "compiler_7.3",
     "layout_contract": "asset_full_name_24",
     "max_characters": null,
-    "detail_target_characters": null,
-    "detail_target_is_hard_limit": false
+    "quality_profile": "g02_cinematic_fullname_v2",
+    "detail_target_characters": 2501,
+    "detail_target_is_hard_limit": true,
+    "detail_count_unit": "cjk_after_asset_name_strip",
+    "asset_reference_mode": "full_name_only",
+    "require_segment_asset_lock": true,
+    "require_shot_asset_lock_for_ambiguous_or_high_risk": true,
+    "require_viewing_task": true,
+    "require_visual_progression": true,
+    "require_end_state": true,
+    "flat_shot_check": true,
+    "boilerplate_duplication_warning": true,
+    "camera_policy": "whole_episode_dynamic",
+    "require_camera_execution": true,
+    "require_transition_pairs": true,
+    "static_requires_reason": true
   },
   "sequence_canon": {
     "last_accepted_take": null,

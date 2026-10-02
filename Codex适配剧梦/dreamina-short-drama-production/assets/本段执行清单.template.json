@@ -1,14 +1,33 @@
 {
-  "schema": "JM-segment-check-v1",
+  "schema": "JM-segment-check-v2",
   "segment_id": null,
   "segment_number": null,
   "main_language": null,
   "duration_seconds": null,
-  "time_source": {"kind": null, "seconds": null},
-  "source_review": {"dialogue": "unknown", "narration": "unknown", "visible_text": "unknown"},
+  "time_source": {
+    "kind": null,
+    "seconds": null
+  },
+  "source_review": {
+    "dialogue": "unknown",
+    "narration": "unknown",
+    "visible_text": "unknown"
+  },
   "has_independent_voice_reference": false,
   "character_attached_audio_preserved": null,
   "screen_text_mode": "direct_generation",
+  "quality": {
+    "profile": "g02_cinematic_fullname_v2",
+    "viewing_task": null,
+    "start_state": null,
+    "visual_progression": [],
+    "relationship_change": null,
+    "end_state": null,
+    "end_hook": null,
+    "segment_duration_exception": null,
+    "function_diversity_exception": null,
+    "detail_override": null
+  },
   "shots": [],
   "source_dialogue": {},
   "source_dialogue_meta": {},
@@ -16,5 +35,6 @@
   "source_narration": {},
   "narration_coverage": [],
   "visible_text": [],
-  "asset_bindings": []
+  "asset_bindings": [],
+  "sound_events": []
 }
